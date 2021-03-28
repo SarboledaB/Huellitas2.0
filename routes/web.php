@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home.index");
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Admin
+Route::get('/admin/user/show/{id}', 'App\Http\Controllers\admin\UserController@show')->name("admin.user.show");
+Route::get('/admin/user/list', 'App\Http\Controllers\admin\UserController@list')->name("admin.user.list");
+Route::get('/admin/user/create', 'App\Http\Controllers\admin\UserController@create')->name("admin.user.create");
+Route::post('/admin/user/save', 'App\Http\Controllers\admin\UserController@save')->name("admin.user.save");
+Route::get('/admin/user/delete/{id}', 'App\Http\Controllers\admin\UserController@delete')->name("admin.user.delete");
 
 //PetItem Routes
 Route::get('/admin/petItem/show/{id}', 'App\Http\Controllers\admin\PetItemController@show')->name("admin.petItem.show");
@@ -39,4 +44,4 @@ Route::get('/list', 'App\Http\Controllers\user\PetItemController@list')->name("u
 Route::get('/petItem/show/{id}', 'App\Http\Controllers\user\PetItemController@show')->name("user.petItem.show");
 Route::get('/cart/add/{id}', 'App\Http\Controllers\user\CartController@add')->name("user.cart.add");
 Route::get('/cart', 'App\Http\Controllers\user\CartController@show')->name("user.cart.show");
-
+Route::get('user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
