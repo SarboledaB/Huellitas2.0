@@ -21,17 +21,51 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="{{ route('home.index') }}">Home</a>
+                <a class="navbar-brand js-scroll-trigger" href="{{ route('user.petItem.list') }}">HUELLITAS</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+
+                    <ul class="navbar-nav mr-auto">
+                        <!-- Future Left Side Links -->
+                    </ul>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Future authentication Links -->
+                    </ul>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                     @guest
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                        <li>
+                            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">PetItems</a>
+                            <ul class="collapse list-unstyled" id="pageSubmenu2">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.petItem.create') }}">Create</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.petItem.list') }}">List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Categories</a>
+                            <ul class="collapse list-unstyled" id="pageSubmenu1">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.category.create') }}">Create</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.category.list') }}">List</a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
 
@@ -39,29 +73,19 @@
                             @csrf
                         </form>
                     @endguest
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.cart.show') }}">Cart</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Home</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Website - Home</p>
-            </div>
-        </header>
 
-        @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
 
         <!-- Footer-->
+        <br>
         <footer class="footer text-center">
             <div class="container">
                 <div class="row">
