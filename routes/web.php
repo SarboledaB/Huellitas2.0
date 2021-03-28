@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes();
-
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Admin
@@ -24,6 +24,14 @@ Route::get('/admin/user/list', 'App\Http\Controllers\admin\UserController@list')
 Route::get('/admin/user/create', 'App\Http\Controllers\admin\UserController@create')->name("admin.user.create");
 Route::post('/admin/user/save', 'App\Http\Controllers\admin\UserController@save')->name("admin.user.save");
 Route::get('/admin/user/delete/{id}', 'App\Http\Controllers\admin\UserController@delete')->name("admin.user.delete");
+Route::get('/admin/foundations/create', 'App\Http\Controllers\admin\FoundationsController@create')->name("admin.foundations.create");
+Route::get('/admin/foundations/list', 'App\Http\Controllers\admin\FoundationsController@list')->name("admin.foundations.list");
+Route::post('/admin/foundations/save', 'App\Http\Controllers\admin\FoundationsController@save')->name("foundations.admin.save");
+Route::get('/admin/foundations/show/{id}', 'App\Http\Controllers\admin\FoundationsController@show')->name("foundations.admin.show");
+Route::get('/admin/foundations/delete/{id}', 'App\Http\Controllers\admin\FoundationsController@delete')->name("admin.foundations.delete");
+
+Route::get('/admin/donations/list/{foundationId}', 'App\Http\Controllers\admin\DonationsController@list')->name("admin.donations.list");
+Route::get('/admin/donations/show/{id}', 'App\Http\Controllers\admin\DonationsController@show')->name("admin.donations.show");
 
 //PetItem Routes
 Route::get('/admin/petItem/show/{id}', 'App\Http\Controllers\admin\PetItemController@show')->name("admin.petItem.show");
@@ -45,3 +53,7 @@ Route::get('/petItem/show/{id}', 'App\Http\Controllers\user\PetItemController@sh
 Route::get('/cart/add/{id}', 'App\Http\Controllers\user\CartController@add')->name("user.cart.add");
 Route::get('/cart', 'App\Http\Controllers\user\CartController@show')->name("user.cart.show");
 Route::get('user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
+Route::get('/user/foundations/list', 'App\Http\Controllers\user\FoundationsController@list')->name("user.foundations.list");
+Route::get('/user/foundations/show/{id}', 'App\Http\Controllers\user\FoundationsController@show')->name("user.foundations.show");
+Route::get('/user/donations/create/{id}', 'App\Http\Controllers\user\DonationsController@create')->name("user.donations.create");
+Route::post('/user/donations/save', 'App\Http\Controllers\user\DonationsController@save')->name("user.donations.save");
