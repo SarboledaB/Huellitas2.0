@@ -19,6 +19,8 @@ class CreateDonationsTable extends Migration
             $table->integer('value');
             $table->bigInteger('foundation_id')->unsigned();
             $table->foreign('foundation_id')->references('id')->on('foundations')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

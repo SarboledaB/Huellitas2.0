@@ -58,6 +58,11 @@ class Donation extends Model
         return $this->belongsTo(Foundation::class);
     }
 
+    public function user() // RELACIÓN, una donación solo pertenece a un usuario
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public static function validate(Request $request)
     {
         $request->validate([

@@ -19,7 +19,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    protected $fillable = ['username', 'password', 'firstName', 'lastName', 'email'];
+    protected $fillable = ['username', 'firstName', 'lastName', 'email', 'password'];
 
     protected $hidden = ['password', 'remember_token',];
 
@@ -93,9 +93,19 @@ class User extends Authenticatable
     {
         $this->attributes['email'] = $email;
     }
-
+    
+    public function getRole()
+    {
+        return $this->attributes['role'];
+    }
+    
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function donations() 
+    {
+        return $this->hasMany(Donation::class);
     }
 }

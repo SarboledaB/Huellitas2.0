@@ -11,8 +11,13 @@ class FoundationsController extends Controller
     public function list()
     {
         //dd("entra");
-        $data["foundations"] = Foundation::all();
-        return view('user.foundations.list')->with("data",$data);
+        try{
+            $data["foundations"] = Foundation::all();
+            return view('user.foundations.list')->with("data",$data);
+        } catch (\Throwable $th){
+            return view('user.foundations.list')->with('danger', "Couldn't get the list!");
+        }
+        
     }
 
     public function show($id)

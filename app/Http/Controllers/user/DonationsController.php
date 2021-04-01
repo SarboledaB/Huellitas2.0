@@ -18,9 +18,29 @@ class DonationsController extends Controller
 
     public function save(Request $request)
     {   
-        Donation::validate($request);
-        Donation::create($request->only(["payment","value","foundation_id"]));        
-        return back()->with('success','¡Gracias por donar!');
+        try{
+            Donation::validate($request);
+            Donation::create($request->only(["payment","value","foundation_id"]));        
+            return back()->with('success','Thank you for donating!');
+        } catch(\Throwable $th){
+            return back()->with('danger', 'Error, could not donate!');
+        }
+        
     }
+
+    public function list($id)
+    {
+        try {
+
+            $data = []; //to be sent to the view
+            $data["title"] = "List donations";
+            $data["donations"] = Donation::all()->where('user_id', $id);
+
+            return view('user.donations.list')->with("data", $data);
+        } catch (\Throwable $th) {
+            return view('user.donations.list')->with('danger', "Couldn't get the list!");
+        }
+    }
+
 
 }
