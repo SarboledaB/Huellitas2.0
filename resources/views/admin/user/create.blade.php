@@ -10,14 +10,6 @@
             <div class="card">
                 <div class="card-header">Create user</div>
                 <div class="card-body">
-                    @if($errors->any())
-                    <ul id="errors">
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                    
                     <form method="POST" action="{{ route('admin.user.save') }}">
                         Please input your data:
                         </br>
@@ -30,6 +22,21 @@
                                 <input id="name" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                 @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+                            <div class="col-md-6">
+                                <select id="type" class="form-select form-control" name="type" value="{{ old('type') }}" required>
+                                    <option value=0>{{__('User')}}</option>
+                                    <option value=1>{{__('Admin')}}</option>
+                                </select>
+                                @error('type')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

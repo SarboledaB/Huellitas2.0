@@ -59,6 +59,7 @@ class UserController extends Controller
             User::validate($request);
             User::create([
                 'username' => $request['username'],
+                'type' => $request['type'],
                 'firstName' => $request['firstName'],
                 'lastName' => $request['lastName'],
                 'email' => $request['email'],

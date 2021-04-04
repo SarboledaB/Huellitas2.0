@@ -19,7 +19,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    protected $fillable = ['username', 'firstName', 'lastName', 'email', 'password'];
+    protected $fillable = ['username', 'type', 'firstName', 'lastName', 'email', 'password'];
 
     protected $hidden = ['password', 'remember_token',];
 
@@ -27,6 +27,7 @@ class User extends Authenticatable
     {
         $request->validate([
             "username" => "required",
+            "type" => "boolean",
             "firstName" => "required",
             "lastName" => "required",
             "email" => "required|email",
@@ -42,6 +43,16 @@ class User extends Authenticatable
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getType()
+    {
+        return $this->attributes['type'];
+    }
+
+    public function setType($type)
+    {
+        $this->attributes['type'] = $type;
     }
 
     public function getUsername()
