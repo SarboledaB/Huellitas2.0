@@ -54,7 +54,8 @@ Route::post('/admin/category/save', 'App\Http\Controllers\admin\CategoryControll
 Route::delete('/admin/category/delete/{id}', 'App\Http\Controllers\admin\CategoryController@delete')->name("admin.category.delete");
 
 //For user
-// Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@create')->name("user.register");
+Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@register')->name("user.register");
+Route::post('/register/save', 'App\Http\Controllers\Auth\RegisterController@save')->name("user.save");
 
 Route::get('/list', 'App\Http\Controllers\user\PetItemController@list')->name("user.petItem.list");
 Route::get('/petItem/show/{id}', 'App\Http\Controllers\user\PetItemController@show')->name("user.petItem.show");
