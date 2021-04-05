@@ -25,9 +25,9 @@ class CartController extends Controller
 
 
     public function add($id, Request $request)
-    {
+    {   
         $products = $request->session()->get("products"); 
-        $data[$id] = $id;
+        $products[$id] = $id;
         $request->session()->put('products', $products);
         return back();     
     }

@@ -48,7 +48,6 @@ class RegisterController extends Controller
 
     public function save(Request $request)
     {
-        try {
             User::validate($request);
             User::create([
                 'username' => $request['username'],
@@ -58,8 +57,6 @@ class RegisterController extends Controller
                 'password' => Hash::make($request['password'])
             ]);
             return back()->with('success', 'User created successfully!');
-        } catch (\Throwable $th) {
-            return back()->with('danger', 'User was not created!');
-        }
+        
     }
 }
