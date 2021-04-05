@@ -18,7 +18,7 @@
                             @endforeach
                         </ul>
                         @endif
-                        <form class="form-group" method="POST" action="{{ route('admin.petItem.save') }}">
+                        <form class="form-group" method="POST" action="{{ route('admin.petItem.save') }}" enctype="multipart/form-data" >
                             @csrf
                             <label>Name</label>
                             <input class="form-control" type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" required />
@@ -40,8 +40,10 @@
                                 @endforeach
                             </select>
                             <br>
-                            <label>Image</label>
-                            <input class="form-control" type="file" placeholder="Enter image" name="image" value="{{ old('image') }}" required />
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" name="image"/>
+                            </div>
                             <br>
                             <input class="btn btn-primary btn-lg btn-block" type="submit" value="Send" />
                         </form>
