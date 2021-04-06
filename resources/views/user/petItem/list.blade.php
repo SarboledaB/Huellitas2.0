@@ -18,7 +18,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="card mb-3">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="..." alt="Card image cap" height="250">
                 <div class="card-body">
                   <h5 class="card-title">ejem</h5>
                   <p class="card-text">dfg</p>
@@ -29,7 +29,7 @@
           @foreach($category->pet_items as $petItem)
             <div class="carousel-item">
               <div class="card mb-3">
-                <img class="card-img-top" src="{{ $petItem->getImage() }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ $petItem->getImage() }}" alt="Card image cap" height="250">
                 <div class="card-body">
                   <h5 class="card-title">{{$petItem->getName()}}</h5>
                   <p class="card-text">{{$petItem->getDetails()}}</p>

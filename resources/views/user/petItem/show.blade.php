@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card mb-3">
-                    <img class="card-img-top" src="{{ URL::asset('storage/$data["petItem"]->getImage()') }}" alt="..">
+                    <img class="card-img-top" src="{{ $data["petItem"]->getImage() }}" alt="..">
                     <div class="card-body">
                         <h5 class="card-title">{{ $data["petItem"]->getName()}}</h5>
                         <p class="card-text"><small class="text-muted">${{ $data["petItem"]->getValue()}}</small></p>

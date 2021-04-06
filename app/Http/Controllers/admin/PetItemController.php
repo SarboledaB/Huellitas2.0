@@ -46,8 +46,8 @@ class PetItemController extends Controller
             $storeInterface = app(ImageStorage::class);
             $storeInterface->store($request);
             $name = $request->file('image')->getClientOriginalName();
-            $path = URL::asset('storage/{$name}' );
-            PetItem::create(["name"=>$request->name, "details"=>$request->details, "category_id"=>$request->category_id, "value"=>$request->value, "rating"=>$request->rating, "image"=>$path]);
+            $path = URL::asset('storage/' . $name);
+            PetItem::create(["name"=>strtoupper($request->name), "details"=>$request->details, "category_id"=>$request->category_id, "value"=>$request->value, "rating"=>$request->rating, "image"=>$path]);
             return back()->with('success', 'Pet Item created successfully!');
         /* } catch (\Throwable $th) {
             return back()->with('danger', 'Pet Item was not create!');
