@@ -54,6 +54,7 @@ Route::post('/admin/category/save', 'App\Http\Controllers\admin\CategoryControll
 Route::delete('/admin/category/delete/{id}', 'App\Http\Controllers\admin\CategoryController@delete')->name("admin.category.delete");
 
 //For user
+
 Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@register')->name("user.register");
 Route::post('/register/save', 'App\Http\Controllers\Auth\RegisterController@save')->name("user.save");
 
@@ -61,7 +62,7 @@ Route::get('/list', 'App\Http\Controllers\user\PetItemController@list')->name("u
 Route::get('/petItem/show/{id}', 'App\Http\Controllers\user\PetItemController@show')->name("user.petItem.show");
 Route::get('/cart/add/{id}', 'App\Http\Controllers\user\CartController@add')->name("user.cart.add");
 Route::get('/cart', 'App\Http\Controllers\user\CartController@show')->name("user.cart.show");
-Route::get('user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
+Route::get('/user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
 
 Route::get('/user/foundations/list', 'App\Http\Controllers\user\FoundationsController@list')->name("user.foundations.list");
 Route::get('/user/foundations/show/{id}', 'App\Http\Controllers\user\FoundationsController@show')->name("user.foundations.show");

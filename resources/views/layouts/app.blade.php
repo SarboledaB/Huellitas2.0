@@ -43,6 +43,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.register') }}">{{ __('Register') }}</a></li>
                         @else
+                        
                         <li>
                             <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">PetItems</a>
                             <ul class="collapse list-unstyled" id="pageSubmenu2">
@@ -54,6 +55,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li>
                             <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Categories</a>
                             <ul class="collapse list-unstyled" id="pageSubmenu1">
@@ -62,6 +64,18 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('admin.category.list') }}">List</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Foundations</a>
+                            <ul class="collapse list-unstyled" id="pageSubmenu3">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.foundations.create') }}">Create</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.foundations.list') }}">List</a>
                                 </li>
                             </ul>
                         </li>
