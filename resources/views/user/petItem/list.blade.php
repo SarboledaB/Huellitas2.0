@@ -16,28 +16,32 @@
     </div>
       <div id="carouselExampleControls-{{$category->getName()}}" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="card mb-3">
-                <img class="card-img-top" src="..." alt="Card image cap" height="250">
-                <div class="card-body">
-                  <h5 class="card-title">ejem</h5>
-                  <p class="card-text">dfg</p>
-                  <p class="card-text"><small class="text-muted">dfg</small></p>
+          @foreach($category->pet_items as $key => $petItem)
+            @if( $key === 0)
+              <div class="carousel-item active">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{ $petItem->getImage() }}" alt="Card image cap" height="250">
+                  <div class="card-body">
+                    <h5 class="card-title">{{$petItem->getName()}}</h5>
+                    <p class="card-text">{{$petItem->getDetails()}}</p>
+                    <p class="card-text"><small class="text-muted">{{$petItem->getValue()}}</small></p>
+                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">view</a>
+                  </div>
                 </div>
               </div>
-            </div>
-          @foreach($category->pet_items as $petItem)
-            <div class="carousel-item">
-              <div class="card mb-3">
-                <img class="card-img-top" src="{{ $petItem->getImage() }}" alt="Card image cap" height="250">
-                <div class="card-body">
-                  <h5 class="card-title">{{$petItem->getName()}}</h5>
-                  <p class="card-text">{{$petItem->getDetails()}}</p>
-                  <p class="card-text"><small class="text-muted">{{$petItem->getValue()}}</small></p>
-                  <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">view</a>
+            @else
+              <div class="carousel-item">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="{{ $petItem->getImage() }}" alt="Card image cap" height="250">
+                  <div class="card-body">
+                    <h5 class="card-title">{{$petItem->getName()}}</h5>
+                    <p class="card-text">{{$petItem->getDetails()}}</p>
+                    <p class="card-text"><small class="text-muted">{{$petItem->getValue()}}</small></p>
+                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">view</a>
+                  </div>
                 </div>
               </div>
-            </div>
+            @endif
           @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls-{{$category->getName()}}" role="button" data-slide="prev">
