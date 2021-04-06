@@ -21,9 +21,13 @@ class FoundationsController extends Controller
 
     public function save(Request $request)
     {   
-        Foundation::validate($request);
-        Foundation::create($request->only(["name","email","description"]));        
-        return back()->with('success','Fundación creada con éxito!');
+        try{
+            Foundation::validate($request);
+            Foundation::create($request->only(["name","email","description"]));        
+            return back()->with('success','The foundation was created successfully!');
+        } catch(\Throwable $th){
+            return back()->with('danger', 'Error, could not donate!');
+        }
     }
 
     public function show($id)

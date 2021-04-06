@@ -4,6 +4,9 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Donation;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class DonationsController extends Controller
 {
@@ -11,17 +14,30 @@ class DonationsController extends Controller
     {
         $data["title"] = "Donar";
         $data["foundationId"] = $foundationId;
-        //dd($data["foundationId"]);
+        $data["userId"] = Auth::id();
+        // dd($data["userId"]);
         return view('user.donations.create')->with("data",$data);
     }
 
 
     public function save(Request $request)
     {   
-        try{
+        // $test = $request->get('user_id');
+        // dd($request);
+
+        
+       try{
             Donation::validate($request);
-            Donation::create($request->only(["payment","value","foundation_id"]));        
+            $donation = new Donation();
+            $donation->setPayment($request->input('payment'));
+            $donation->setValue($request->input('value'));
+            $donation->setFoundationId($request->input('foundation_id'));
+            $donation->setUserId($request->input('user_id'));
+            $donation->save();
             return back()->with('success','Thank you for donating!');
+            /* Donation::validate($request);
+            Donation::create($request->only(["payment","value","foundation_id","user_id"]));        
+            return back()->with('success','Thank you for donating!'); */
         } catch(\Throwable $th){
             return back()->with('danger', 'Error, could not donate!');
         }
