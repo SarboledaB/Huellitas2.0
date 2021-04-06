@@ -26,11 +26,17 @@
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
+                <form class="form-inline" method="POST" action="{{ route('user.search.search') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Send">Search</button>
+                </form>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
 
                     <ul class="navbar-nav mr-auto">
                         <!-- Future Left Side Links -->
+
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -42,42 +48,50 @@
                     @guest
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.register') }}">{{ __('Register') }}</a></li>
-                        
-                    
 
                         @else
-                        <li>
-                            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">PetItems</a>
+
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Admin</a>
                             <ul class="collapse list-unstyled" id="pageSubmenu2">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('admin.petItem.create') }}">Create</a>
+                                    <li>
+                                        <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">PetItems</a>
+                                        <ul class="collapse list-unstyled" id="pageSubmenu4">
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.petItem.create') }}">Create</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.petItem.list') }}">List</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('admin.petItem.list') }}">List</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Categories</a>
-                            <ul class="collapse list-unstyled" id="pageSubmenu1">
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('admin.category.create') }}">Create</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('admin.category.list') }}">List</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Foundations</a>
-                            <ul class="collapse list-unstyled" id="pageSubmenu3">
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('admin.foundations.create') }}">Create</a>
+                                    <li>
+                                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Categories</a>
+                                        <ul class="collapse list-unstyled" id="pageSubmenu1">
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.category.create') }}">Create</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.category.list') }}">List</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('admin.foundations.list') }}">List</a>
+                                    <li>
+                                        <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Foundations</a>
+                                        <ul class="collapse list-unstyled" id="pageSubmenu3">
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.foundations.create') }}">Create</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.foundations.list') }}">List</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </li>
                             </ul>
                         </li>
