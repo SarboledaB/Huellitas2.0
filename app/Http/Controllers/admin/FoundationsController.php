@@ -7,6 +7,10 @@ use App\Models\Foundation;
 
 class FoundationsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     public function create()
     {
         $data["title"] = "Agregar fundación";
