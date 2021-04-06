@@ -71,6 +71,5 @@ Route::get('/user/foundations/show/{id}', 'App\Http\Controllers\user\Foundations
 
 Route::get('/user/donations/create/{id}', 'App\Http\Controllers\user\DonationsController@create')->name("user.donations.create");
 Route::post('/user/donations/save', 'App\Http\Controllers\user\DonationsController@save')->name("user.donations.save");
-// implement
 Route::get('/user/donations/list', 'App\Http\Controllers\user\DonationsController@list')->name("user.donations.list");
 Route::get('/user/donations/show/{id}', 'App\Http\Controllers\user\DonationsController@show')->name("user.donations.show");
