@@ -70,5 +70,19 @@ return [
     'total' => 'Total',
     'date' => 'Data',
     'show' => 'Show',
+    'create_user' => 'User',
+    'username' => 'Username',
+    'type' => 'Type',
+    'user' => 'user',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'email_address' => 'E-mail Address',
+    'password' => 'Password',
+    'confirm_password' => 'Confirm Password',
+    'register' => 'Register',
+    'export_orders' => 'Export Orders'
+
+
+
 
 ];
