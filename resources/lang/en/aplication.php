@@ -30,6 +30,7 @@ return [
     'search' => 'search',
     'create_category' => 'create category',
     'id' => 'ID',
-    'undefine' => 'Undefine'
+    'undefine' => 'Undefine',
+    'buy' => 'buy'
 
 ];
