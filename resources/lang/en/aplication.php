@@ -61,5 +61,14 @@ return [
     'see_donations' => 'See donations',
     'foundation_new_data'=> 'Please input the updated data: ',
     'undefine' => 'Undefine'
+    'buy' => 'buy',
+    'full_name' => 'Full Name',
+    'email' => 'Email',
+    'edit' => 'Edit',
+    'edit_product' => 'Edit product',
+    'item' => 'Item',
+    'total' => 'Total',
+    'date' => 'Data',
+    'show' => 'Show',
 
 ];

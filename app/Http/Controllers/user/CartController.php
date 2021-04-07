@@ -4,8 +4,12 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Order;
+use App\Models\Item;
 use App\Models\PetItem;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use PhpOption\None;
 
 class CartController extends Controller
 {
@@ -32,9 +36,46 @@ class CartController extends Controller
         return back();     
     }
 
-    public function removeAll(Request $request)
+    public function remove($id, Request $request)
     {
         $request->session()->forget('products');
         return back();
+    }
+
+    public function buy(Request $request)
+    {
+        $data = []; //to be sent to the view
+        $data["title"] = "Order";
+        $data["user"] = User::findOrFail(Auth::id());
+
+        $order = new Order();
+        $order->setTotal(0);
+        $order->setStatus(0);
+        $order->setPayment('');
+        $order->setUserId(Auth::id());
+        $order->save();
+
+        $total = 0;
+        $ids = $request->session()->get("products");
+        $listProductsInCart = [];
+        if($ids){
+            $listProductsInCart = PetItem::findMany($ids);
+            foreach ($listProductsInCart as $product) {
+                $item = new Item();
+                $item->setQuantity(1);
+                $item->setvalue($product->getValue());
+                $item->setPetItemId($product->getId());
+                $item->setOrderId($order->getId());
+                $item->save();
+                $total = $total + $product->getValue();
+            }
+        }
+
+        $order->setTotal($total);
+        $order->save();
+        $data["order"] = $order;
+        $data["products"] = PetItem::findMany($ids);;
+        $request->session()->forget('products');
+        return view('user.order.show')->with("data", $data);
     }
 }

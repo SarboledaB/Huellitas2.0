@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes();
-// Route::get('/', 'App\Http\Controllers\user\HomeController@index')->name("home.index");
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 //For admin
 
@@ -47,6 +46,8 @@ Route::get('/admin/petItem/create', 'App\Http\Controllers\admin\PetItemControlle
 Route::get('/admin/petItem/list', 'App\Http\Controllers\admin\PetItemController@list')->name("admin.petItem.list");
 Route::post('/admin/petItem/save', 'App\Http\Controllers\admin\PetItemController@save')->name("admin.petItem.save");
 Route::delete('/admin/petItem/delete/{id}', 'App\Http\Controllers\admin\PetItemController@delete')->name("admin.petItem.delete");
+Route::get('/admin/petItem/updateform/{id}', 'App\Http\Controllers\admin\PetItemController@updateForm')->name("admin.petItem.updateform");
+Route::post('/admin/petItem/update', 'App\Http\Controllers\admin\PetItemController@update')->name("admin.petItem.update");
 
 //Category Routes
 Route::get('/admin/category/show/{id}', 'App\Http\Controllers\admin\CategoryController@show')->name("admin.category.show");
@@ -57,6 +58,8 @@ Route::delete('/admin/category/delete/{id}', 'App\Http\Controllers\admin\Categor
 
 //For user
 
+Route::get('/profile', 'App\Http\Controllers\user\ProfileController@show')->name("user.profile.show");
+
 Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@register')->name("user.register");
 Route::post('/register/save', 'App\Http\Controllers\Auth\RegisterController@save')->name("user.save");
 
@@ -64,8 +67,14 @@ Route::get('/list', 'App\Http\Controllers\user\PetItemController@list')->name("u
 Route::get('/petItem/show/{id}', 'App\Http\Controllers\user\PetItemController@show')->name("user.petItem.show");
 Route::get('/cart/add/{id}', 'App\Http\Controllers\user\CartController@add')->name("user.cart.add");
 Route::get('/cart', 'App\Http\Controllers\user\CartController@show')->name("user.cart.show");
+Route::get('/cart/buy', 'App\Http\Controllers\user\CartController@buy')->name("user.cart.buy");
+Route::delete('/cart/delete/{id}', 'App\Http\Controllers\user\CartController@remove')->name("user.cart.delete");
+
+
 Route::get('/user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
 Route::post('/petItem/search', 'App\Http\Controllers\user\SearchController@search')->name("user.search.search");
+
+Route::get('/order/save', 'App\Http\Controllers\user\OrderController@save')->name("user.order.save");
 
 
 Route::get('/user/foundations/list', 'App\Http\Controllers\user\FoundationsController@list')->name("user.foundations.list");

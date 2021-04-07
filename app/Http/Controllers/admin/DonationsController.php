@@ -7,6 +7,10 @@ use App\Models\Donation;
 
 class DonationsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+    
     public function create($id) //pase el id del foundation para cuando cree la donation mandar a db el id del foundation
     {
         $data["title"] = "Donar";
