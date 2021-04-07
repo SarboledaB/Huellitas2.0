@@ -54,7 +54,7 @@
                     @else
                     @if (Auth::user()->getType() == 1)
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle ">{{ __('Admin') }}</a>
+                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link py-3 px-0 px-lg-3 dropdown-toggle ">{{ __('Admin') }}</a>
                         <ul class="collapse" id="pageSubmenu1">
                             <li>
                                 <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Users') }}</a>
