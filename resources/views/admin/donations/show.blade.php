@@ -10,9 +10,11 @@
 
                     <div class="card-body">
                         <ul id="errors">
-                        <li> {{ $data["donations"]->getPayment() }} </li>
-                        <li> {{ $data["donations"]->getValue() }} </li>
-                        <li> {{ $data["donations"]->getUserId() }} </li>
+                        <li> Donation ID: {{ $data["donations"]->getId() }} </li>
+                        <li> Date of donation: {{ $data["donations"]->getdate() }} </li>
+                        <li> Payment method: {{ $data["donations"]->getPayment() }} </li>
+                        <li> Donated value: {{ $data["donations"]->getValue() }} </li>
+                        <li> User: {{ $data["donations"]->getUserId() }} </li>
                         <br>
                         <button type="button" class="btn btn-primary" onclick="window.location=
                         '{{ URL::route('admin.donations.list', ['foundationId'=>$data["donations"]->getFoundationId()]) }}'">Back</button>    

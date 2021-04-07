@@ -34,6 +34,8 @@ Route::get('/admin/foundations/list', 'App\Http\Controllers\admin\FoundationsCon
 Route::post('/admin/foundations/save', 'App\Http\Controllers\admin\FoundationsController@save')->name("admin.foundations.save");
 Route::get('/admin/foundations/show/{id}', 'App\Http\Controllers\admin\FoundationsController@show')->name("admin.foundations.show");
 Route::get('/admin/foundations/delete/{id}', 'App\Http\Controllers\admin\FoundationsController@delete')->name("admin.foundations.delete");
+Route::get('/admin/foundations/updateform/{id}', 'App\Http\Controllers\admin\FoundationsController@updateForm')->name("admin.foundations.updateform");
+Route::post('/admin/foundations/update', 'App\Http\Controllers\admin\FoundationsController@update')->name("admin.foundations.update");
 
 //Donation Routes
 Route::get('/admin/donations/list/{foundationId}', 'App\Http\Controllers\admin\DonationsController@list')->name("admin.donations.list");

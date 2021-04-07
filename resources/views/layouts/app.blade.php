@@ -139,10 +139,10 @@
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4">About Huellitas</h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            Online petshop where you can find all your pet supplies and donate to foundations in need!
+                            <a href=" {{route('user.foundations.list') }} ">Donate here</a>
                             .
                         </p>
                     </div>
