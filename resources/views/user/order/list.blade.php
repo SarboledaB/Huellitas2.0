@@ -18,7 +18,6 @@
                             @endforeach
                         </ul>
                         @endif
-
                         <table class="table">
                             <thead>
                                 <tr>

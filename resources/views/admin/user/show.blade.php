@@ -9,6 +9,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ $data["user"]->getUsername() }}</div>
+                    
                     <div class="card-body">
                         <b>Id:</b> {{ $data["user"]->getId() }}<br />
                         <b>Username:</b> {{ $data["user"]->getUsername() }}<br />

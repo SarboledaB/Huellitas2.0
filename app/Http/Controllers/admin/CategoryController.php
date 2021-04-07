@@ -12,6 +12,7 @@ class CategoryController extends Controller
         $this->middleware('admin');
     }
 
+    
     /* public function show($id)
     {
         try {

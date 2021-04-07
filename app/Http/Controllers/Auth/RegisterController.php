@@ -49,7 +49,7 @@ class RegisterController extends Controller
     public function save(Request $request)
     {
             User::validate($request);
-            
+
             User::create([
                 'username' => $request['username'], 
                 'firstName' => $request['firstName'],
@@ -57,6 +57,7 @@ class RegisterController extends Controller
                 'email' => $request['email'],
                 'password' => Hash::make($request['password'])
             ]);
+            
             return redirect()->route('login')->with('success', 'User created successfully!');
         
     }

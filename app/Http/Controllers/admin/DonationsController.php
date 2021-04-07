@@ -11,6 +11,7 @@ class DonationsController extends Controller
         $this->middleware('admin');
     }
 
+    
     public function create($id) //pase el id del foundation para cuando cree la donation mandar a db el id del foundation
     {
         $data["title"] = "Donar";

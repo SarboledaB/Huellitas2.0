@@ -65,7 +65,6 @@ Route::get('/cart', 'App\Http\Controllers\user\CartController@show')->name("user
 Route::get('/user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
 Route::post('/petItem/search', 'App\Http\Controllers\user\SearchController@search')->name("user.search.search");
 
-
 Route::get('/user/foundations/list', 'App\Http\Controllers\user\FoundationsController@list')->name("user.foundations.list");
 Route::get('/user/foundations/show/{id}', 'App\Http\Controllers\user\FoundationsController@show')->name("user.foundations.show");
 
