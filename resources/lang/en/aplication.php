@@ -31,6 +31,9 @@ return [
     'create_category' => 'create category',
     'id' => 'ID',
     'undefine' => 'Undefine',
-    'buy' => 'buy'
+    'buy' => 'buy',
+    'full_name' => 'Full Name',
+    'email' => 'Email'
+
 
 ];
