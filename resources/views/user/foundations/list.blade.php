@@ -25,9 +25,7 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
-            <button type="button" class="btn btn-primary" onclick="window.location=
-                '{{ URL::route('user.donations.list') }}'">@lang('aplication.my_donations')</button>   
+            </table>   
         </div>
     </div>
     
