@@ -13,6 +13,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
+use App\Exports\OrdersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class OrderController extends Controller
 {
     public function create()
@@ -47,6 +50,11 @@ class OrderController extends Controller
         } catch (\Throwable $th) {
             return view('user.order.list')->with('danger', "Couldn't get the list!");
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new OrdersExport, 'Orders.xlsx');
     }
 
 }

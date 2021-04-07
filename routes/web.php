@@ -72,6 +72,7 @@ Route::delete('/cart/delete/{id}', 'App\Http\Controllers\user\CartController@rem
 
 
 Route::get('/user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
+Route::get('user/order/export/', 'App\Http\Controllers\user\OrderController@export')->name("user.order.export");
 Route::post('/petItem/search', 'App\Http\Controllers\user\SearchController@search')->name("user.search.search");
 
 Route::get('/order/save', 'App\Http\Controllers\user\OrderController@save')->name("user.order.save");
