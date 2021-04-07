@@ -7,10 +7,10 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Foundation ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">E-Mail</th>  
-                        <th scope="col">Action</th>  
+                        <th scope="col">@lang('aplication.foundation_id')</th>
+                        <th scope="col">@lang('aplication.name')</th>
+                        <th scope="col">@lang('aplication.email')</th>  
+                        <th scope="col">@lang('aplication.actions')</th>  
                     </tr>
                 </thead>
                 <tbody>

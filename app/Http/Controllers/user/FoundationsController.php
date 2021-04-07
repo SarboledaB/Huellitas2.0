@@ -4,16 +4,19 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Foundation;
+use App\Models\Donation;
 
 class FoundationsController extends Controller
 {
     
     public function list()
     {
-        //dd("entra");
+        
+        
         try{
             $data["foundations"] = Foundation::all();
             return view('user.foundations.list')->with("data",$data);
+            
         } catch (\Throwable $th){
             return view('user.foundations.list')->with('danger', "Couldn't get the list!");
         }

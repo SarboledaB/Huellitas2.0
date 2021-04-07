@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <section class="page-section portfolio">
     <div class="row p-5">
@@ -7,9 +9,9 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>  
-                        <th scope="col">Action</th>  
+                        <th scope="col">@lang('aplication.name')</th>
+                        <th scope="col">@lang('aplication.description')</th>  
+                        <th scope="col">@lang('aplication.action')</th>  
                     </tr>
                 </thead>
                 <tbody>
@@ -18,14 +20,14 @@
                         <td>{{ $foundation->getName() }}</td>
                         <td>{{ $foundation->getDescription() }}</td>
                         <td><button type="button" class="btn btn-primary" onclick="window.location=
-                        '{{ URL::route('user.foundations.show', ['id'=>$foundation->getId()]) }} '">Show</button></td>                                                                    
+                        '{{ URL::route('user.foundations.show', ['id'=>$foundation->getId()]) }} '">@lang('aplication.see_more')</button></td>                                                                    
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <button type="button" class="btn btn-primary" onclick="window.location=
-                '{{ URL::route('user.donations.list') }}'">My donations</button>   
+                '{{ URL::route('user.donations.list') }}'">@lang('aplication.my_donations')</button>   
         </div>
     </div>
     
