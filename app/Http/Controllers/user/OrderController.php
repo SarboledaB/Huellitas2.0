@@ -26,8 +26,10 @@ class OrderController extends Controller
     public function save(Request $request)
     {
         try {
-            Order::validate($request);
-            Order::create($request->only(['id', 'status', 'total', 'paymentMethod', 'user', 'items']));
+            $products = $request->session()->get("products"); 
+            dd($products);
+            /* Order::validate($request);
+            Order::create($request->only(['id', 'status', 'total', 'paymentMethod', 'user', 'items'])); */
         } catch (\Throwable $th) {
             return back()->with('danger', 'Order was not created!');
         }

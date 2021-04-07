@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">Create Category</div>
+                    <div class="card-header">@lang('aplication.create_category')</div>
                     <div class="card-body">
                         @if($errors->any())
                         <ul id="errors">
@@ -20,7 +20,7 @@
                         @endif
                         <form class="form-group" method="POST" action="{{ route('admin.category.save') }}">
                             @csrf
-                            <label>Name</label>
+                            <label>@lang('aplication.name')</label>
                             <input class="form-control" type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" required />
                             <br>
                             <input class="btn btn-primary btn-lg btn-block" type="submit" value="Send" />

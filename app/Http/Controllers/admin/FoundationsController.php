@@ -9,7 +9,7 @@ class FoundationsController extends Controller
 {
     public function create()
     {
-        $data["title"] = "Agregar fundación";
+        $data["title"] = "Add a foundation";
         return view('admin.foundations.create')->with("data",$data);
     }
     
@@ -21,9 +21,13 @@ class FoundationsController extends Controller
 
     public function save(Request $request)
     {   
-        Foundation::validate($request);
-        Foundation::create($request->only(["name","email","description"]));        
-        return back()->with('success','Fundación creada con éxito!');
+        try{
+            Foundation::validate($request);
+            Foundation::create($request->only(["name","email","description"]));        
+            return back()->with('success','The foundation was created successfully!');
+        } catch(\Throwable $th){
+            return back()->with('danger', 'Error, could not donate!');
+        }
     }
 
     public function show($id)
@@ -39,6 +43,27 @@ class FoundationsController extends Controller
         //return back()->with('success', 'Foundation deleted succesfully'); 
         return redirect()->route('admin.foundations.list');
         
+    }
+
+    public function updateForm($id)
+    {
+        $data["foundation"] = Foundation::findOrFail($id);
+        return view('admin.foundations.update')->with("data",$data);
+    }
+
+    public function update(Request $request)
+    {
+        try{
+            $foundation = Foundation::find($request->input('id'));
+            $foundation->setName($request->input('name'));
+            $foundation->setEmail($request->input('email'));
+            $foundation->setDescription($request->input('description'));
+            $foundation->save();
+            return back()->with('success','The foundation was updated successfully!');
+        } catch(\Throwable $th){
+            return back()->with('danger', 'Error, could not donate!');
+        }
+
     }
 
 }

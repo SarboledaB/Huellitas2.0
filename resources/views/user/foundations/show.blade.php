@@ -12,15 +12,18 @@
 
                 <div class="card-body">
                     <ul id="errors">
-                    <li> {{ $data["foundation"]->getName() }} </li>
-                    <li> {{ $data["foundation"]->getEmail() }} </li>
-                    <li> {{ $data["foundation"]->getDescription() }} </li>   
+                    <li> Name: {{ $data["foundation"]->getName() }} </li>
+                    <li> E-Mail: {{ $data["foundation"]->getEmail() }} </li>
+                    <li> Description: {{ $data["foundation"]->getDescription() }} </li>   
                     <br>
                     <button type="button" class="btn btn-primary" onclick="window.location=
                     '{{ URL::route('user.donations.create', ['id'=>$data["foundation"]->getId()]) }}'">Donate</button>                                     
                     </ul>
+                    
                 </div>
             </div>
+            <button type="button" class="btn btn-primary" onclick="window.location=
+            '{{ URL::route('user.foundations.list') }}'">Back</button>
         </div>
     </div>
 </div>

@@ -10,13 +10,19 @@
                 <a href="#" class="list-group-item list-group-item-actio">
                     <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{$product->getName()}}</h5>
-                    <small>3 days ago</small>
+                    <small>{{$product->getValue()}}</small>
+                    <form method="POST" action="{{ route('user.cart.delete', ['id' => $product->getId()]) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">@lang('aplication.delete')</button>
+                    </form>
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    <small>Donec id elit non mi porta.</small>
+                    <p class="mb-1">{{$product->getDetails()}}</p>
                 </a>
             @endforeach
         </div>
+        <br>
+        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.order.save')}}" role="button">@lang('aplication.buy')</a>
     </div>
 </section>
 @endsection

@@ -23,6 +23,11 @@ class Donation extends Model
         $this->attributes['id'] = $id;
     }
 
+    public function getDate()
+    {
+        return $this->attributes['created_at'];
+    }
+
     public function getPayment()
     {
         return $this->attributes['payment'];
@@ -53,6 +58,16 @@ class Donation extends Model
         $this->attributes['foundation_id'] = $foundationId;
     }
 
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId($userId)
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function foundation() // RELACIÓN, una donación solo pertenece a una fundación
     {
         return $this->belongsTo(Foundation::class);
@@ -68,7 +83,8 @@ class Donation extends Model
         $request->validate([
             "payment" => "required",
             "value" => "required|numeric|gt:0",
-            "foundation_id" => "required"
+            "foundation_id" => "required",
+            "user_id" => "required"            
         ]);
     }
 }

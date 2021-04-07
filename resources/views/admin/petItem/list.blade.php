@@ -24,7 +24,6 @@
                         <td>{{ $petItem->getValue() }}</td>
                         <td>{{ $petItem->getCategory() }}</td>
                         <td>
-                            <button type="button" class="btn btn-secondary">Edit</button>
                             <form method="POST" action="{{ route('admin.petItem.delete', ['id' => $petItem->getId()]) }}">
                                 @csrf
                                 @method('DELETE')
