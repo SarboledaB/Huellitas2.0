@@ -38,6 +38,7 @@ return [
     'edit_product' => 'Edit product',
     'item' => 'Item',
     'total' => 'Total',
-
+    'date' => 'Data',
+    'show' => 'Show',
 
 ];
