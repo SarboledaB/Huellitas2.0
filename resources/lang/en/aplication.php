@@ -33,7 +33,11 @@ return [
     'undefine' => 'Undefine',
     'buy' => 'buy',
     'full_name' => 'Full Name',
-    'email' => 'Email'
+    'email' => 'Email',
+    'edit' => 'Edit',
+    'edit_product' => 'Edit product',
+    'item' => 'Item',
+    'total' => 'Total',
 
 
 ];

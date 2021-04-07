@@ -84,7 +84,8 @@ class PetItemController extends Controller
     {
         $data["petItem"] = PetItem::findOrFail($id);
         $data["title"] = $data["petItem"]->name;
-        return view('admin.petItem.formUpdate')->with("data",$data);
+        $data["categories"] = Category::all();
+        return view('admin.petItem.update')->with("data",$data);
     }
 
     public function update(Request $request)

@@ -29,6 +29,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">@lang('aplication.delete')</button>
                             </form>
+                            <a class="btn btn-primary " href="{{ route('admin.petItem.updateform', ['id' => $petItem->getId()]) }}" role="button">@lang('aplication.edit')</a>
                         </td>
                     </tr>
                     @endforeach

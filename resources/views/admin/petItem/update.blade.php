@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">@lang('aplication.create_product')</div>
+                    <div class="card-header">@lang('aplication.edit_product')</div>
                     <div class="card-body">
                         @if($errors->any())
                         <ul id="errors">

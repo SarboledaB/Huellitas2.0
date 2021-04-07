@@ -46,6 +46,8 @@ Route::get('/admin/petItem/create', 'App\Http\Controllers\admin\PetItemControlle
 Route::get('/admin/petItem/list', 'App\Http\Controllers\admin\PetItemController@list')->name("admin.petItem.list");
 Route::post('/admin/petItem/save', 'App\Http\Controllers\admin\PetItemController@save')->name("admin.petItem.save");
 Route::delete('/admin/petItem/delete/{id}', 'App\Http\Controllers\admin\PetItemController@delete')->name("admin.petItem.delete");
+Route::get('/admin/petItem/updateform/{id}', 'App\Http\Controllers\admin\PetItemController@updateForm')->name("admin.petItem.updateform");
+Route::post('/admin/petItem/update', 'App\Http\Controllers\admin\PetItemController@update')->name("admin.petItem.update");
 
 //Category Routes
 Route::get('/admin/category/show/{id}', 'App\Http\Controllers\admin\CategoryController@show')->name("admin.category.show");

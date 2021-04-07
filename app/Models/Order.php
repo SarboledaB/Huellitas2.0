@@ -78,6 +78,16 @@ class Order extends Model
         $this->attributes['user_id'] = $user;
     }
 
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($user)
+    {
+        $this->attributes['created_at'] = $user;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

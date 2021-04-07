@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Item;
 use App\Models\PetItem;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use PhpOption\None;
 
@@ -44,7 +45,9 @@ class CartController extends Controller
     public function buy(Request $request)
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Buy";
+        $data["title"] = "Order";
+        $data["user"] = User::findOrFail(Auth::id());
+
         $order = new Order();
         $order->setTotal(0);
         $order->setStatus(0);
@@ -54,6 +57,7 @@ class CartController extends Controller
 
         $total = 0;
         $ids = $request->session()->get("products");
+        $listProductsInCart = [];
         if($ids){
             $listProductsInCart = PetItem::findMany($ids);
             foreach ($listProductsInCart as $product) {
@@ -69,7 +73,9 @@ class CartController extends Controller
 
         $order->setTotal($total);
         $order->save();
-
-        dd($order);
+        $data["order"] = $order;
+        $data["products"] = PetItem::findMany($ids);;
+        $request->session()->forget('products');
+        return view('user.order.show')->with("data", $data);
     }
 }
