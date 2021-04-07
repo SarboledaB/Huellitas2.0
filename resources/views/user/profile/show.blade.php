@@ -22,6 +22,7 @@
                     <br>
                     <div>
                         <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.order.export')}}" role="button">@lang('aplication.export_orders')</a>
+                        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.donations.list')}}" role="button">@lang('aplication.my_donations')</a>
                     </div>
                 </div>
                 <div class="col-md-8">

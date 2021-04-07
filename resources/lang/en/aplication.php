@@ -53,6 +53,7 @@ return [
     'credit' => 'Credit',
     'foundation_id' => 'Foundation ID',
     'foundation_id_' => 'Foundation ID: ',
+    'foundations' => 'FOUNDATIONS',
     'user_id' => 'User ID',
     'user_id_' => 'User ID: ',
     'action' => 'Action',
