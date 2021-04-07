@@ -49,8 +49,9 @@ class RegisterController extends Controller
     public function save(Request $request)
     {
             User::validate($request);
+            
             User::create([
-                'username' => $request['username'],
+                'username' => $request['username'], 
                 'firstName' => $request['firstName'],
                 'lastName' => $request['lastName'],
                 'email' => $request['email'],
