@@ -60,7 +60,7 @@ return [
     'see_more' => 'See more',
     'see_donations' => 'See donations',
     'foundation_new_data'=> 'Please input the updated data: ',
-    'undefine' => 'Undefine'
+    'undefine' => 'Undefine',
     'buy' => 'buy',
     'full_name' => 'Full Name',
     'email' => 'Email',
