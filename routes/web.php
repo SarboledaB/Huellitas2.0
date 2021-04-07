@@ -55,6 +55,8 @@ Route::delete('/admin/category/delete/{id}', 'App\Http\Controllers\admin\Categor
 
 //For user
 
+Route::get('/profile', 'App\Http\Controllers\user\ProfileController@show')->name("user.profile.show");
+
 Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@register')->name("user.register");
 Route::post('/register/save', 'App\Http\Controllers\Auth\RegisterController@save')->name("user.save");
 
