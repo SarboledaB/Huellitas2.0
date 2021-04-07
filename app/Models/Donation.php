@@ -23,6 +23,11 @@ class Donation extends Model
         $this->attributes['id'] = $id;
     }
 
+    public function getDate()
+    {
+        return $this->attributes['created_at'];
+    }
+
     public function getPayment()
     {
         return $this->attributes['payment'];

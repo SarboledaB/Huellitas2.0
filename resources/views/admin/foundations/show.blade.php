@@ -10,12 +10,15 @@
 
                     <div class="card-body">
                         <ul id="errors">
-                        <li> {{ $data["foundation"]->getName() }} </li>
-                        <li> {{ $data["foundation"]->getEmail() }} </li>
-                        <li> {{ $data["foundation"]->getDescription() }} </li>   
+                        <li> Foundation ID: {{ $data["foundation"]->getId() }} </li>
+                        <li> Name: {{ $data["foundation"]->getName() }} </li>
+                        <li> E-Mail: {{ $data["foundation"]->getEmail() }} </li>
+                        <li> Description: {{ $data["foundation"]->getDescription() }} </li>   
                         <br>
                         <button type="button" class="btn btn-primary" onclick="window.location=
                         '{{ URL::route('admin.foundations.delete', ['id'=>$data["foundation"]->getId()]) }}'">Delete</button>
+                        <button type="button" class="btn btn-primary" onclick="window.location=
+                        '{{ URL::route('admin.foundations.updateform', ['id'=>$data["foundation"]->getId()]) }}'">Update</button>
                         <button type="button" class="btn btn-primary" onclick="window.location=
                         '{{ URL::route('admin.donations.list', ['foundationId'=>$data["foundation"]->getId()]) }}'">See donations</button>                                                                          
                         </ul>
