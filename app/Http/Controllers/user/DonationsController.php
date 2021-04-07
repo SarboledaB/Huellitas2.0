@@ -44,12 +44,12 @@ class DonationsController extends Controller
         
     }
 
-    public function list($id)
+    public function list()
     {
         try {
 
-            $data = []; //to be sent to the view
-            $data["title"] = "List donations";
+            $id = Auth::id();
+            $data["title"] = "My donations";
             $data["donations"] = Donation::all()->where('user_id', $id);
 
             return view('user.donations.list')->with("data", $data);

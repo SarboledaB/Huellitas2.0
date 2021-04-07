@@ -24,7 +24,6 @@ class CreateCategoryTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
-            $table->json('items')->default(new Expression('(JSON_ARRAY())'));
             $table->timestamps();
         });
     }

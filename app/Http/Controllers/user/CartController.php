@@ -32,7 +32,7 @@ class CartController extends Controller
         return back();     
     }
 
-    public function removeAll(Request $request)
+    public function remove($id, Request $request)
     {
         $request->session()->forget('products');
         return back();
