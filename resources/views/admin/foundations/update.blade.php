@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">Please input the foundation's new data: </div>
+                    <div class="card-header">@lang('aplication.foundation_new_data')</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.foundations.update') }}">
@@ -66,7 +66,7 @@
                                         {{ __('Update') }}
                                     </button>
                                     <button type="button" class="btn btn-primary" onclick="window.location=
-                                    '{{ URL::route('admin.foundations.show', ['id'=>$data['foundation']->getId()]) }} '">Back</button>
+                                    '{{ URL::route('admin.foundations.show', ['id'=>$data['foundation']->getId()]) }} '">@lang('aplication.back')</button>
                                 </div>
                             </div>  
                         </form>

@@ -9,7 +9,7 @@
             <div class="col-md-8">
             @include('util.message')
                 <div class="card">
-                    <div class="card-header">Donate</div>
+                    <div class="card-header">@lang('aplication.donate')</div>
                         <div class="card-body">
                         <form method="POST" action="{{ route('user.donations.save') }}">
                             @csrf
@@ -19,8 +19,8 @@
 
                                 <div class="col-md-6">
                                     <select required type="text" input id="payment" type="text" class="form-control @error('payment') is-invalid @enderror" name="payment" value="{{ old('payment') }}" required autocomplete="payment" autofocus>
-                                        <option value="Debit" >Debit</option>
-                                        <option value="Credit" >Credit</option>
+                                        <option value="Debit" >@lang('aplication.debit')</option>
+                                        <option value="Credit" >@lang('aplication.credit')</option>
                                     </select>
                                     @error('payment')
                                         <span class="invalid-feedback" role="alert">

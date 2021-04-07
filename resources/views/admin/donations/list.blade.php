@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <section class="page-section portfolio">
     <div class="row p-5">
@@ -7,13 +8,13 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">DonationID</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">FoundationID</th>
-                        <th scope="col">UserID</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">@lang('aplication.donation_id')</th>
+                        <th scope="col">@lang('aplication.date')</th>
+                        <th scope="col">@lang('aplication.payment_method')</th>
+                        <th scope="col">@lang('aplication.value')</th>
+                        <th scope="col">@lang('aplication.foundation_id')</th>
+                        <th scope="col">@lang('aplication.user_id')</th>
+                        <th scope="col">@lang('aplication.action')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +27,7 @@
                         <td>{{ $donation->getFoundationId() }}</td>
                         <td>{{ $donation->getUserId() }}</td>
                         <td><button type="button" class="btn btn-primary" onclick="window.location=
-                        '{{ URL::route('admin.donations.show', ['id'=>$donation->getId()]) }} '">See more</button></td>                                                                    
+                        '{{ URL::route('admin.donations.show', ['id'=>$donation->getId()]) }} '">@lang('aplication.see_more')</button></td>                                                                    
                         </td>
                     </tr>
                     @endforeach
