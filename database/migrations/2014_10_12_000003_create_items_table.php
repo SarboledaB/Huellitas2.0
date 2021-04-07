@@ -17,8 +17,8 @@ class CreateItemsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('quantity');
             $table->double('value');
-            //$table->bigInteger('pet_item_id')->unsigned();
-            //$table->foreign('pet_item_id')->references('id')->on('pet_items');
+            $table->bigInteger('pet_item_id')->unsigned();
+            $table->foreign('pet_item_id')->references('id')->on('pet_items');
             $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();

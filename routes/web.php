@@ -65,7 +65,9 @@ Route::get('/list', 'App\Http\Controllers\user\PetItemController@list')->name("u
 Route::get('/petItem/show/{id}', 'App\Http\Controllers\user\PetItemController@show')->name("user.petItem.show");
 Route::get('/cart/add/{id}', 'App\Http\Controllers\user\CartController@add')->name("user.cart.add");
 Route::get('/cart', 'App\Http\Controllers\user\CartController@show')->name("user.cart.show");
+Route::get('/cart/buy', 'App\Http\Controllers\user\CartController@buy')->name("user.cart.buy");
 Route::delete('/cart/delete/{id}', 'App\Http\Controllers\user\CartController@remove')->name("user.cart.delete");
+
 
 Route::get('/user/order/list', 'App\Http\Controllers\user\OrderController@list')->name("user.order.list");
 Route::post('/petItem/search', 'App\Http\Controllers\user\SearchController@search')->name("user.search.search");
