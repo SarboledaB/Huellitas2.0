@@ -79,4 +79,29 @@ class PetItemController extends Controller
             return back()->with('danger', 'Pet Item was not delete!');
         }
     }
+
+    public function updateForm($id)
+    {
+        $data["petItem"] = PetItem::findOrFail($id);
+        $data["title"] = $data["petItem"]->name;
+        $data["categories"] = Category::all();
+        return view('admin.petItem.update')->with("data",$data);
+    }
+
+    public function update(Request $request)
+    {
+        try{
+            $petItem = PetItem::find($request->id);
+            $petItem->setName($request->name);
+            $petItem->setDetails($request->details);
+            $petItem->setCategory($request->category_id);
+            $petItem->getValue($request->value);
+            $petItem->setRating($request->rating);
+            $petItem->save();
+            return back()->with('success','The petItem was updated successfully!');
+        } catch(\Throwable $th){
+            return back()->with('danger', 'Error, could not donate!');
+        }
+
+    }
 }

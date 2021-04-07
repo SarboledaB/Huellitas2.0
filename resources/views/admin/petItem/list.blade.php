@@ -11,10 +11,10 @@
                 <thead class="thead-dark">
                     <tr>
                         <!-- <th scope="col">ID</th> -->
-                        <th scope="col">Name</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">@lang('aplication.name')</th>
+                        <th scope="col">@lang('aplication.value')</th>
+                        <th scope="col">@lang('aplication.category')</th>
+                        <th scope="col">@lang('aplication.actions')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,8 +27,9 @@
                             <form method="POST" action="{{ route('admin.petItem.delete', ['id' => $petItem->getId()]) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">@lang('aplication.delete')</button>
                             </form>
+                            <a class="btn btn-primary " href="{{ route('admin.petItem.updateform', ['id' => $petItem->getId()]) }}" role="button">@lang('aplication.edit')</a>
                         </td>
                     </tr>
                     @endforeach
