@@ -7,10 +7,10 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">@lang('aplication.foundation_id')</th>
-                        <th scope="col">@lang('aplication.name')</th>
-                        <th scope="col">@lang('aplication.email')</th>  
-                        <th scope="col">@lang('aplication.actions')</th>  
+                        <th scope="col">@lang('foundation.foundation_id')</th>
+                        <th scope="col">@lang('general.name')</th>
+                        <th scope="col">@lang('general.email')</th>  
+                        <th scope="col">@lang('general.actions')</th>  
                     </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@
                         <td>{{ $foundation->getName() }}</td>
                         <td>{{ $foundation->getEmail() }}</td>
                         <td><button type="button" class="btn btn-primary" onclick="window.location=
-                        '{{ URL::route('admin.foundations.show', ['id'=>$foundation->getId()]) }} '">See more</button></td>                                                                    
+                        '{{ URL::route('admin.foundations.show', ['id'=>$foundation->getId()]) }} '">@lang('general.see_more')</button></td>                                                                    
                         </td>
                     </tr>
                     @endforeach

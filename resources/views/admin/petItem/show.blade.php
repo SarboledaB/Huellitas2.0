@@ -15,7 +15,7 @@
                     </div>
                     <div class="card-body">
                         <h6 class="card-subtitle mb-2 text-muted">Value: {{ $data["petItem"]->getValue()}}</h6>
-                        <b>Details:</b> {{ $data["petItem"]->getDetails() }}<br />
+                        <b>@lang('general.details')</b> {{ $data["petItem"]->getDetails() }}<br />
                         <br />
                         <form method="POST" action="{{ route(admin.petItem.delete', ['id' => $data["petItem"]->getId()]) }}">
                             @csrf

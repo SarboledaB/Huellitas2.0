@@ -16,7 +16,7 @@ return [
     'huellitas' => 'HUELLITAS',
     'admin' => 'admin',
     'petitems' => 'products',
-    'create' => 'create',
+    'create' => 'Create',
     'create_product' => 'create product',
     'name' => 'Name',
     'details' => 'details',
@@ -60,6 +60,7 @@ return [
     'see_more' => 'See more',
     'see_donations' => 'See donations',
     'foundation_new_data'=> 'Please input the updated data: ',
+    'foundation_data'=> "Please input the foundation's data: ",
     'undefine' => 'Undefine'
 
 ];

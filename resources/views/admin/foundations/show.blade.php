@@ -10,17 +10,17 @@
 
                     <div class="card-body">
                         <ul id="errors">
-                        <li> @lang('aplication.foundation_id_') {{ $data["foundation"]->getId() }} </li>
-                        <li> @lang('aplication.name_') {{ $data["foundation"]->getName() }} </li>
-                        <li> @lang('aplication.email_') {{ $data["foundation"]->getEmail() }} </li>
-                        <li> @lang('aplication.description_') {{ $data["foundation"]->getDescription() }} </li>   
+                        <li> @lang('general.foundation_id_') {{ $data["foundation"]->getId() }} </li>
+                        <li> @lang('general.name_') {{ $data["foundation"]->getName() }} </li>
+                        <li> @lang('general.email_') {{ $data["foundation"]->getEmail() }} </li>
+                        <li> @lang('general.description_') {{ $data["foundation"]->getDescription() }} </li>   
                         <br>
                         <button type="button" class="btn btn-primary" onclick="window.location=
-                        '{{ URL::route('admin.foundations.delete', ['id'=>$data["foundation"]->getId()]) }}'">@lang('aplication.delete')</button>
+                        '{{ URL::route('admin.foundations.delete', ['id'=>$data["foundation"]->getId()]) }}'">@lang('general.delete')</button>
                         <button type="button" class="btn btn-primary" onclick="window.location=
-                        '{{ URL::route('admin.foundations.updateform', ['id'=>$data["foundation"]->getId()]) }}'">@lang('aplication.update')</button>
+                        '{{ URL::route('admin.foundations.updateform', ['id'=>$data["foundation"]->getId()]) }}'">@lang('general.update')</button>
                         <button type="button" class="btn btn-primary" onclick="window.location=
-                        '{{ URL::route('admin.donations.list', ['foundationId'=>$data["foundation"]->getId()]) }}'">@lang('aplication.see_donations')</button>                                                                          
+                        '{{ URL::route('admin.donations.list', ['foundationId'=>$data["foundation"]->getId()]) }}'">@lang('donation.see_donations')</button>                                                                          
                         </ul>
                     </div>
                 </div>
