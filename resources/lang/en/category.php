@@ -22,6 +22,7 @@ return [
 
     // Atributes 
     'id' => 'ID',
+<<<<<<< HEAD:resources/lang/en/category.php
     'name' => 'Name',
     'name_' => 'Name: ',
     'date' => 'Date',
@@ -41,5 +42,12 @@ return [
     
 
     'undefine' => 'Undefine'
+=======
+    'undefine' => 'Undefine',
+    'buy' => 'buy',
+    'full_name' => 'Full Name',
+    'email' => 'Email'
+
+>>>>>>> main:resources/lang/en/aplication.php
 
 ];
