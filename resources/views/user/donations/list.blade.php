@@ -7,10 +7,10 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">@lang('aplication.date')</th>
-                        <th scope="col">@lang('aplication.foundation_id')</th>
-                        <th scope="col">@lang('aplication.payment_method')</th>
-                        <th scope="col">@lang('aplication.value')</th>
+                        <th scope="col">@lang('general.date')</th>
+                        <th scope="col">@lang('foundation.foundation_id')</th>
+                        <th scope="col">@lang('general.payment_method')</th>
+                        <th scope="col">@lang('general.value')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +27,7 @@
                 </tbody>
             </table>
             <button type="button" class="btn btn-primary" onclick="window.location=
-                '{{ URL::route('user.foundations.list') }}'">@lang('aplication.back')</button>             
+                '{{ URL::route('user.foundations.list') }}'">@lang('general.back')</button>             
         </div>
     </div>
     
