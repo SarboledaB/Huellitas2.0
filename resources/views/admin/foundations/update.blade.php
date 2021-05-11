@@ -67,6 +67,7 @@
                                     </button>
                                     <button type="button" class="btn btn-primary" onclick="window.location=
                                     '{{ URL::route('admin.foundations.show', ['id'=>$data['foundation']->getId()]) }} '">@lang('general.back')</button>
+
                                 </div>
                             </div>  
                         </form>

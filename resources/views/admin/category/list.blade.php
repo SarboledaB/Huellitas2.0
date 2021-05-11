@@ -27,6 +27,7 @@
                                 <button type="submit" class="btn btn-danger">@lang('general.delete')</button>
                             </form>
                             <button type="button" class="btn btn-secondary">@lang('general.edit')</button>
+
                         </td>
                     </tr>
                     @endforeach

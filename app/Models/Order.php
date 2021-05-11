@@ -70,12 +70,22 @@ class Order extends Model
 
     public function getUserId()
     {
-        return $this->attributes['user'];
+        return $this->attributes['user_id'];
     }
 
     public function setUserId($user)
     {
-        $this->attributes['user'] = $user;
+        $this->attributes['user_id'] = $user;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($user)
+    {
+        $this->attributes['created_at'] = $user;
     }
 
     public function user()

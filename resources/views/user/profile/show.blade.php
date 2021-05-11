@@ -19,6 +19,11 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <div>
+                        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.order.export')}}" role="button">@lang('aplication.export_orders')</a>
+                        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.donations.list')}}" role="button">@lang('aplication.my_donations')</a>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
@@ -47,44 +52,21 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <!-- <th scope="col">ID</th> -->
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">@lang('aplication.id')</th>
+                                    <th scope="col">@lang('aplication.date')</th>
+                                    <th scope="col">@lang('aplication.total')</th>
+                                    <th scope="col">@lang('aplication.actions')</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($data["orders"] as $key => $order)
                                 <tr>
-                                    <td>fdg</td>
-                                    <td>dfg</td>
-                                    <td>dfg</td>
-                                    <td>
-                                        dfg
-                                    </td>
+                                    <td>{{$order->getId()}}</td>
+                                    <td>{{$order->getCreatedAt()}}</td>
+                                    <td>{{$order->getTotal()}}</td>
+                                    <td><a class="btn btn-primary " href="" role="button">@lang('aplication.show')</a></td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card mb-3">
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <!-- <th scope="col">ID</th> -->
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Foundation</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fdg</td>
-                                    <td>dfg</td>
-                                    <td>dfg</td>
-                                    <td>
-                                        dfg
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

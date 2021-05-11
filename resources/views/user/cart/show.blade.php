@@ -22,7 +22,7 @@
             @endforeach
         </div>
         <br>
-        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.order.save')}}" role="button">@lang('aplication.buy')</a>
+        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.cart.buy')}}" role="button">@lang('aplication.buy')</a>
     </div>
 </section>
 @endsection

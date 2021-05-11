@@ -47,6 +47,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.foundations.list') }}">@lang('aplication.foundations')</a></li>
                     @guest
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.register') }}">{{ __('Register') }}</a></li>
@@ -54,7 +55,7 @@
                     @else
                     @if (Auth::user()->getType() == 1)
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle ">{{ __('Admin') }}</a>
+                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link py-3 px-0 px-lg-3 dropdown-toggle ">{{ __('Admin') }}</a>
                         <ul class="collapse" id="pageSubmenu1">
                             <li>
                                 <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Users') }}</a>
