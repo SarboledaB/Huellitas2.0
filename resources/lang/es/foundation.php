@@ -13,10 +13,16 @@ return [
     |
     */
 
-    'petitems' => 'Products',
-    'item' => 'Item',
-    'edit_product' => 'Edit Product',
-    'create_product' => 'Create Product'
+    
+    
+    'description' => 'Descripción',
+    'description_' => 'Descripción: ',
 
+    'foundation_id' => 'ID de fundación',
+    'foundation_id_' => 'ID de fundación: ',
+
+    'foundation_new_data'=> 'Por favor ingresa los datos actualizados: ',
+    'foundation_data'=> "Por favor ingresa los datos de la fundación: ",
+    'foundations'=> "Fundaciones "
 
 ];

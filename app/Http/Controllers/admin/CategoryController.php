@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin');
     }
 
@@ -34,10 +35,10 @@ class CategoryController extends Controller
 
     public function save(Request $request)
     {
-            Category::validate($request);
-            Category::create($request->only(["name"]));
+        Category::validate($request);
+        Category::create($request->only(["name"]));
 
-            return back()->with('success', 'Category created successfully!');
+        return back()->with('success', 'Category created successfully!');
     }
 
     public function list()
@@ -58,7 +59,7 @@ class CategoryController extends Controller
             Category::destroy($id);
             return redirect()->route('admin.category.list')->with('success', 'Category deleted succesfully!');
         } catch (\Throwable $th) {
-            return back()->with('danger', 'Category was not delete!');
+            return back()->with('danger', 'Category was not deleted!');
         }
     }
 }

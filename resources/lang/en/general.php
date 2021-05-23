@@ -15,15 +15,24 @@ return [
 
     'huellitas' => 'HUELLITAS',
     'admin' => 'Admin',
+    'user' => 'User',
+    'users' => 'Users',
+    'profile' => 'Profile',
+    'cart' => 'Cart',
+    'menu' => 'Menu',
 
-    'petitems' => 'products',
-    
-    'create_product' => 'Create product',
 
     // Atributes 
     'id' => 'ID',
     'name' => 'Name',
     'name_' => 'Name: ',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'full_name' => 'Full Name ',
+    'username' => 'Username',
+    'password' => 'Password',
+    'status' => "Status",
+    'type' => 'Type',
     'date' => 'Date',
     'date_' => 'Date: ',
     'email' => 'E-Mail',
@@ -32,45 +41,52 @@ return [
     'credit' => 'Credit',
     'details' => 'Details',
     'value' => 'Value',
+    'value_' => 'Value: ',
+    'total_cost' => 'Total Cost',
     'rating' => 'Rating',
     'category' => 'Category',
     'image' => 'Image',
+    'total' => 'Total',
+    
     
     // Actions
-    'send' => 'Send',
-    'create' => 'Create',
+    'register' => 'Register',
+    'remember_me' => 'Remember Me',
+    'forgot_password' => 'Forgot your password?',
+    'login' => 'Login',
+    'logout' => 'Logout',
+    'confirm_password' => 'Confirm password',
+    'buy' => 'Buy',
+    'create' => 'Create',  
+    'create_user' => 'Create User',
     'delete' => 'Delete',
     'edit' => 'Edit',
     'update' => 'Update',
+    'list' => 'List',
     'actions' => 'Actions',
     'action' => 'Action',
     'search' => 'Search',
+    'add' => 'Add to cart',
+    'send' => 'Send',
+    'next' => 'Next',
     'back' => 'Back',
+    'previous' => 'Previous',
     'see_more' => 'See more',
+    'export_orders' => 'Export Orders',
+    'input_data' => 'Please input your data: ',
 
-    'create_category' => 'create category',
     
-    'donation' => 'Donation',
-    'donate' => 'Donate',
-    'donation_id' => 'Donation ID',
-    'donation_id_' => 'Donation ID: ',
-
     'payment_method' => 'Payment Method',
     'payment_method_' => 'Payment Method: ',
-    'value' => 'Value',
-    'value_' => 'Value: ',
     'description' => 'Description',
     'description_' => 'Description: ',
-    'my_donations' => 'My Donations',
-    'see_donations' => 'See donations',
+    'list_of_orders' => 'List of orders',
 
-    'foundation_id' => 'Foundation ID',
-    'foundation_id_' => 'Foundation ID: ',
 
     'user_id' => 'User ID',
     'user_id_' => 'User ID: ',
 
-
+    'undefined' => 'Undefined',
     'undefine' => 'Undefine'
 
 ];

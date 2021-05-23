@@ -23,9 +23,9 @@
                         <thead>
                             <tr>
                                 <th class="center">#</th>
-                                <th>@lang('aplication.item')</th>
-                                <th>@lang('aplication.details')</th>
-                                <th class="right">@lang('aplication.value')</th>
+                                <th>@lang('petItem.item')</th>
+                                <th>@lang('general.details')</th>
+                                <th class="right">@lang('general.value')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,7 +48,7 @@
                             <tbody>
                                 <tr>
                                     <td class="left">
-                                        <strong class="text-dark">@lang('aplication.total')</strong>
+                                        <strong class="text-dark">@lang('general.total')</strong>
                                     </td>
                                     <td class="right">
                                         <strong class="text-dark">$ {{$data["order"]->getTotal()}}</strong>

@@ -1,11 +1,11 @@
 <?php
 
-/*
+/** 
 |--------------------------------------------------------------------------
 | Author: Anthony Garcia Moncada
 | Email:  agarciam@eafit.edu.co
 |--------------------------------------------------------------------------
-*/
+**/
 
 namespace App\Http\Controllers\user;
 

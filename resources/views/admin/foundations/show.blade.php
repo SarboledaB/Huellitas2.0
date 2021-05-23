@@ -10,7 +10,7 @@
 
                     <div class="card-body">
                         <ul id="errors">
-                        <li> @lang('general.foundation_id_') {{ $data["foundation"]->getId() }} </li>
+                        <li> @lang('foundation.foundation_id_') {{ $data["foundation"]->getId() }} </li>
                         <li> @lang('general.name_') {{ $data["foundation"]->getName() }} </li>
                         <li> @lang('general.email_') {{ $data["foundation"]->getEmail() }} </li>
                         <li> @lang('general.description_') {{ $data["foundation"]->getDescription() }} </li>   

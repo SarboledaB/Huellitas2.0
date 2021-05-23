@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\URL;
 class PetItemController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin');
     }
     
@@ -85,7 +86,7 @@ class PetItemController extends Controller
         $data["petItem"] = PetItem::findOrFail($id);
         $data["title"] = $data["petItem"]->name;
         $data["categories"] = Category::all();
-        return view('admin.petItem.update')->with("data",$data);
+        return view('admin.petItem.update')->with("data", $data);
     }
 
     public function update(Request $request)
@@ -98,7 +99,7 @@ class PetItemController extends Controller
             $petItem->getValue($request->value);
             $petItem->setRating($request->rating);
             $petItem->save();
-            return back()->with('success','The petItem was updated successfully!');
+            return back()->with('success', 'The petItem was updated successfully!');
         } catch(\Throwable $th){
             return back()->with('danger', 'Error, could not donate!');
         }

@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">List of Orders</div>
+                    <div class="card-header">@lang('general.list_of_orders')</div>
                     <div class="card-body">
                         @if($errors->any())
                         <ul id="errors">
@@ -23,9 +23,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Total Price</th>
-                                    <th scope="col">Payment Method</th>
+                                    <th scope="col">@lang('general.status')</th>
+                                    <th scope="col">@lang('general.total_cost')</th>
+                                    <th scope="col">@lang('general.payment_method')</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -14,7 +14,7 @@
                     <form method="POST" action="{{ route('user.cart.delete', ['id' => $product->getId()]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">@lang('aplication.delete')</button>
+                            <button type="submit" class="btn btn-danger">@lang('general.delete')</button>
                     </form>
                     </div>
                     <p class="mb-1">{{$product->getDetails()}}</p>
@@ -22,7 +22,7 @@
             @endforeach
         </div>
         <br>
-        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.cart.buy')}}" role="button">@lang('aplication.buy')</a>
+        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.cart.buy')}}" role="button">@lang('general.buy')</a>
     </div>
 </section>
 @endsection

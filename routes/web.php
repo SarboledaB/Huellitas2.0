@@ -18,6 +18,9 @@ Auth::routes();
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
+// Language
+Route::get('lang/{lang}','App\Http\Controllers\LanguageController@switchLang')->name('lang.switch');
+
 //For admin
 
 // User Routes
@@ -28,17 +31,17 @@ Route::post('/admin/user/save', 'App\Http\Controllers\admin\UserController@save'
 Route::get('/admin/user/delete/{id}', 'App\Http\Controllers\admin\UserController@delete')->name("admin.user.delete");
 
 //Foundation Routes
-Route::get('/admin/foundations/create', 'App\Http\Controllers\admin\FoundationsController@create')->name("admin.foundations.create");
-Route::get('/admin/foundations/list', 'App\Http\Controllers\admin\FoundationsController@list')->name("admin.foundations.list");
-Route::post('/admin/foundations/save', 'App\Http\Controllers\admin\FoundationsController@save')->name("admin.foundations.save");
-Route::get('/admin/foundations/show/{id}', 'App\Http\Controllers\admin\FoundationsController@show')->name("admin.foundations.show");
-Route::get('/admin/foundations/delete/{id}', 'App\Http\Controllers\admin\FoundationsController@delete')->name("admin.foundations.delete");
-Route::get('/admin/foundations/updateform/{id}', 'App\Http\Controllers\admin\FoundationsController@updateForm')->name("admin.foundations.updateform");
-Route::post('/admin/foundations/update', 'App\Http\Controllers\admin\FoundationsController@update')->name("admin.foundations.update");
+Route::get('/admin/foundations/create', 'App\Http\Controllers\admin\FoundationController@create')->name("admin.foundations.create");
+Route::get('/admin/foundations/list', 'App\Http\Controllers\admin\FoundationController@list')->name("admin.foundations.list");
+Route::post('/admin/foundations/save', 'App\Http\Controllers\admin\FoundationController@save')->name("admin.foundations.save");
+Route::get('/admin/foundations/show/{id}', 'App\Http\Controllers\admin\FoundationController@show')->name("admin.foundations.show");
+Route::get('/admin/foundations/delete/{id}', 'App\Http\Controllers\admin\FoundationController@delete')->name("admin.foundations.delete");
+Route::get('/admin/foundations/updateform/{id}', 'App\Http\Controllers\admin\FoundationController@updateForm')->name("admin.foundations.updateform");
+Route::post('/admin/foundations/update', 'App\Http\Controllers\admin\FoundationController@update')->name("admin.foundations.update");
 
 //Donation Routes
-Route::get('/admin/donations/list/{foundationId}', 'App\Http\Controllers\admin\DonationsController@list')->name("admin.donations.list");
-Route::get('/admin/donations/show/{id}', 'App\Http\Controllers\admin\DonationsController@show')->name("admin.donations.show");
+Route::get('/admin/donations/list/{foundationId}', 'App\Http\Controllers\admin\DonationController@list')->name("admin.donations.list");
+Route::get('/admin/donations/show/{id}', 'App\Http\Controllers\admin\DonationController@show')->name("admin.donations.show");
 
 //PetItem Routes
 Route::get('/admin/petItem/show/{id}', 'App\Http\Controllers\admin\PetItemController@show')->name("admin.petItem.show");
@@ -78,10 +81,10 @@ Route::post('/petItem/search', 'App\Http\Controllers\user\SearchController@searc
 Route::get('/order/save', 'App\Http\Controllers\user\OrderController@save')->name("user.order.save");
 
 
-Route::get('/user/foundations/list', 'App\Http\Controllers\user\FoundationsController@list')->name("user.foundations.list");
-Route::get('/user/foundations/show/{id}', 'App\Http\Controllers\user\FoundationsController@show')->name("user.foundations.show");
+Route::get('/user/foundations/list', 'App\Http\Controllers\user\FoundationController@list')->name("user.foundations.list");
+Route::get('/user/foundations/show/{id}', 'App\Http\Controllers\user\FoundationController@show')->name("user.foundations.show");
 
-Route::get('/user/donations/create/{id}', 'App\Http\Controllers\user\DonationsController@create')->name("user.donations.create");
-Route::post('/user/donations/save', 'App\Http\Controllers\user\DonationsController@save')->name("user.donations.save");
-Route::get('/user/donations/list', 'App\Http\Controllers\user\DonationsController@list')->name("user.donations.list");
-Route::get('/user/donations/show/{id}', 'App\Http\Controllers\user\DonationsController@show')->name("user.donations.show");
+Route::get('/user/donations/create/{id}', 'App\Http\Controllers\user\DonationController@create')->name("user.donations.create");
+Route::post('/user/donations/save', 'App\Http\Controllers\user\DonationController@save')->name("user.donations.save");
+Route::get('/user/donations/list', 'App\Http\Controllers\user\DonationController@list')->name("user.donations.list");
+Route::get('/user/donations/show/{id}', 'App\Http\Controllers\user\DonationController@show')->name("user.donations.show");

@@ -1,3 +1,4 @@
+
 <?php
 
 return [
@@ -13,10 +14,12 @@ return [
     |
     */
 
-    'petitems' => 'Products',
-    'item' => 'Item',
-    'edit_product' => 'Edit Product',
-    'create_product' => 'Create Product'
 
+    'create_category' => 'Crear categoría',
+    'rating' => 'Calificación',
+    'category' => 'Categoría',
+    'categories' => 'Categorias'
+    
 
 ];
+

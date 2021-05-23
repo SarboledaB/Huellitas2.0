@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 @include('util.message')
                 <div class="card">
-                    <div class="card-header">@lang('aplication.edit_product')</div>
+                    <div class="card-header">@lang('petItem.edit_product')</div>
                     <div class="card-body">
                         @if($errors->any())
                         <ul id="errors">
@@ -21,21 +21,21 @@
                         <form class="form-group" method="POST" action="{{ route('admin.petItem.update') }}" enctype="multipart/form-data" >
                             @csrf
                             <input type="hidden" name="id" value="{{ $data['petItem']->getId() }}">
-                            <label>@lang('aplication.name')</label>
+                            <label>@lang('general.name')</label>
                             <input class="form-control" type="text" placeholder="{{ $data['petItem']->getName() }}" name="name" value="{{ old('name') }}" required />
                             <br>
-                            <label>@lang('aplication.details')</label>
+                            <label>@lang('general.details')</label>
                             <input class="form-control" type="text" placeholder="{{ $data['petItem']->getDetails() }}" name="details" value="{{ old('details') }}" required />
                             <br>
-                            <label>@lang('aplication.value')</label>
+                            <label>@lang('general.value')</label>
                             <input class="form-control" type="number" min="0" placeholder="{{ $data['petItem']->getValue() }}" name="value" value="{{ old('value') }}" required />
                             <br>
-                            <label>@lang('aplication.rating')</label>
+                            <label>@lang('category.rating')</label>
                             <input class="form-control" type="number" min="0" placeholder="{{ $data['petItem']->getRating() }}" name="rating" value="{{ old('rating') }}" required />
                             <br>
-                            <label>@lang('aplication.category')</label>
+                            <label>@lang('category.category')</label>
                             <select class="form-select form-control" name="category_id" value="{{ $data['petItem']->getCategory() }}" required>
-                                <option value="0">Undefined</option>
+                                <option value="0">@lang('general.undefined')</option>
                                 @foreach($data["categories"] as $category)
                                 <option value="{{$category->getId()}}">{{ $category->getName() }}</option>
                                 @endforeach
