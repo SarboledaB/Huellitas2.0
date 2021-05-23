@@ -26,15 +26,18 @@ class PetItem extends Model
         'rating'
     ];
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
             "details" => "required",
             "image" => "required",
             "category_id" => "required|numeric",
             "value" => "required|numeric|gt:0",
             "rating" => "required|numeric|gt:0"
-        ]);
+            ]
+        );
     }
         
 

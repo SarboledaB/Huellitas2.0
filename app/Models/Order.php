@@ -21,11 +21,13 @@ class Order extends Model
 
     public static function validate(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "status" => "required|boolean",
             "total" => "required|numeric",
             "payment" => "required"
-        ]);
+            ]
+        );
     }
 
     public function getId()

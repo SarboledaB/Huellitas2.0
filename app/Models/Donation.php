@@ -10,7 +10,7 @@ class Donation extends Model
 {
     use HasFactory;
 
-    //attributes id, payment method, value, foundation_id
+    //attributes id, payment method, value, foundation_id, user_id, created_at, updated_at
     protected $fillable = ['payment','value','foundation_id'];
 
     public function getId()
@@ -80,11 +80,13 @@ class Donation extends Model
 
     public static function validate(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "payment" => "required",
             "value" => "required|numeric|gt:0",
             "foundation_id" => "required",
             "user_id" => "required"            
-        ]);
+            ]
+        );
     }
 }

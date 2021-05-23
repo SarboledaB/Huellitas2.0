@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin');
     }
     
@@ -61,14 +62,16 @@ class UserController extends Controller
     {
         try {
             User::validate($request);
-            User::create([
+            User::create(
+                [
                 'username' => $request['username'],
                 'type' => $request['type'],
                 'firstName' => $request['firstName'],
                 'lastName' => $request['lastName'],
                 'email' => $request['email'],
                 'password' => Hash::make($request['password'])
-            ]);
+                ]
+            );
             return back()->with('success', 'User created successfully!');
         } catch (\Throwable $th) {
             return back()->with('danger', 'User was not created!');

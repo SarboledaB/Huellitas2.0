@@ -21,10 +21,12 @@ class Item extends Model
 
     public static function validate(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "quantity" => "numeric|required",
             "value" => "numeric|required"
-        ]);
+            ]
+        );
     }
 
     public function getId()

@@ -14,9 +14,11 @@ class ProfileController extends Controller
     {   
         $data = []; //to be sent to the view
         $user = User::findOrFail(Auth::id());
-        $orders = Order::where([
+        $orders = Order::where(
+            [
             ['user_id', '=', Auth::id()]
-        ])
+            ]
+        )
         ->get();
         $data["title"] = $user->getUsername();
         $data["user"] = $user;

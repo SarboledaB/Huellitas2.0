@@ -16,10 +16,13 @@ class Category extends Model
         'items',
     ];
 
-    public static function validate(Request $request){
-        $request->validate([
+    public static function validate(Request $request)
+    {
+        $request->validate(
+            [
             "name" => "required",
-        ]);
+            ]
+        );
     }
         
 

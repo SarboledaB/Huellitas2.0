@@ -17,7 +17,7 @@
                         <b>Email:</b> {{ $data["user"]->getEmail() }}<br />
                         <b>Password:</b> {{ $data["user"]->getPassword() }}<br />
                         <br>
-                        <a class="btn btn-outline-danger" href="{{ route('admin.user.delete', ['id' => $data['user']['id']] ) }}">Delete</a>
+                        <a class="btn btn-outline-danger" href="{{ route('admin.user.delete', ['id' => $data['user']['id']] ) }}">@lang('general.delete')</a>
                     </div>
                 </div>
             </div>
