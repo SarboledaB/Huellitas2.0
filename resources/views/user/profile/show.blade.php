@@ -59,7 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data["orders"] as $key => $order)
+                                @foreach($data["user"]->orders as $key => $order)
                                 <tr>
                                     <td>{{$order->getId()}}</td>
                                     <td>{{$order->getCreatedAt()}}</td>
