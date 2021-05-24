@@ -26,8 +26,8 @@
                     @endforeach
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary" onclick="window.location=
-                '{{ URL::route('user.donations.list') }}'">@lang('donation.my_donations')</button>   
+            <!-- <button type="button" class="btn btn-primary" onclick="window.location=
+                '{{ URL::route('user.donations.list') }}'">@lang('donation.my_donations')</button>  -->  
         </div>
     </div>
     

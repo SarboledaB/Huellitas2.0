@@ -25,7 +25,7 @@
                     <h5 class="card-title">{{$petItem->getName()}}</h5>
                     <p class="card-text">{{$petItem->getDetails()}}</p>
                     <p class="card-text"><small class="text-muted">{{$petItem->getValue()}}</small></p>
-                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">view</a>
+                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">@lang('general.see_more')</a>
                   </div>
                 </div>
               </div>
@@ -37,7 +37,7 @@
                     <h5 class="card-title">{{$petItem->getName()}}</h5>
                     <p class="card-text">{{$petItem->getDetails()}}</p>
                     <p class="card-text"><small class="text-muted">{{$petItem->getValue()}}</small></p>
-                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">view</a>
+                    <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.petItem.show', ['id' => $petItem->getId()]) }}" role="button">@lang('general.see_more')</a>
                   </div>
                 </div>
               </div>
@@ -46,11 +46,11 @@
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls-{{$category->getName()}}" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">@lang('general.previous')</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls-{{$category->getName()}}" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">@lang('general.next')</span>
         </a>
       </div>
   </div>

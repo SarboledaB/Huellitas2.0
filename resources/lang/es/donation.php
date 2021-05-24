@@ -13,10 +13,15 @@ return [
     |
     */
 
-    'petitems' => 'Products',
-    'item' => 'Item',
-    'edit_product' => 'Edit Product',
-    'create_product' => 'Create Product'
 
+    'donation' => 'Donación',
+    'donate' => 'Dona',
+    'donation_id' => 'ID de donación',
+    'donation_id_' => 'ID de donación: ',
+    'payment_method' => 'Método de pago',
+    'payment_method_' => 'Método de pago: ',
+
+    'my_donations' => 'Mis Donaciones',
+    'see_donations' => 'Ver donaciones'
 
 ];

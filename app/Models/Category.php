@@ -18,9 +18,12 @@ class Category extends Model
 
     public static function validate(Request $request)
     {
-        $request->validate([
+
+        $request->validate(
+            [
             "name" => "required",
-        ]);
+            ]
+        );
     }
 
 

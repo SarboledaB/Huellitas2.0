@@ -13,10 +13,6 @@ return [
     |
     */
 
-    
-    'value' => 'Value',
-
-
 
     'donation' => 'Donation',
     'donate' => 'Donate',
@@ -24,12 +20,8 @@ return [
     'donation_id_' => 'Donation ID: ',
     'payment_method' => 'Payment Method',
     'payment_method_' => 'Payment Method: ',
-    'value' => 'Value',
-    'value_' => 'Value: ',
 
     'my_donations' => 'My Donations',
-
-    'see_donations' => 'See donations',
-    'undefine' => 'Undefine'
+    'see_donations' => 'See donations'
 
 ];

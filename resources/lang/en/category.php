@@ -14,36 +14,12 @@ return [
     |
     */
 
-    'huellitas' => 'HUELLITAS',
-    'admin' => 'Admin',
 
-    'petitems' => 'products',
-    
-    'create_product' => 'Create product',
-
-    // Atributes 
-    'id' => 'ID',
-  
-    'name' => 'Name',
-    'name_' => 'Name: ',
-    'date' => 'Date',
-    'date_' => 'Date: ',
-    'email' => 'E-Mail',
-    'email_' => 'E-Mail: ',
-    'debit' => 'Debit',
-    'credit' => 'Credit',
-    'details' => 'Details',
-    'value' => 'Value',
+    'create_category' => 'Create Category',
     'rating' => 'Rating',
     'category' => 'Category',
+    'categories' => 'Categories'
     
-
-
-    'create_category' => 'create category',
-    
-
-    'undefine' => 'Undefine'
-
 
 ];
 

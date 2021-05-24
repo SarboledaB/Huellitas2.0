@@ -14,7 +14,7 @@ return [
     */
 
     'petitems' => 'Products',
-    'item' => 'Item',
+    'item' => 'Artículo',
     'edit_product' => 'Edit Product',
     'create_product' => 'Create Product'
 
