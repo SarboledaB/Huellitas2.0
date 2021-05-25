@@ -39,6 +39,11 @@ class PetItemController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Create Product', "admin.petItem.create", null, "1");
+        $data["breadlist"] = $breadlist;
+
         $data["title"] = "Create product";
         $data["categories"] = $data["petItems"] = Category::all();
         return view('admin.petItem.create')->with("data", $data);
@@ -63,6 +68,11 @@ class PetItemController extends Controller
     {
         try {
             $data = []; //to be sent to the view
+            $breadlist = array();
+            $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+            $breadlist[1] = array('List Products', "admin.petItem.list", null, "1");
+            $data["breadlist"] = $breadlist;
+
             $data["title"] = "List product";
             $data["petItems"] = PetItem::all()->sortBy('id');
             return view('admin.petItem.list')->with("data", $data);

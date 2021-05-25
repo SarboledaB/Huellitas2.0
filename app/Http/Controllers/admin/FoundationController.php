@@ -21,12 +21,22 @@ class FoundationController extends Controller
     
     public function create()
     {
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Create Foundation', "admin.foundations.create", null, "1");
+        
+        $data["breadlist"] = $breadlist;
         $data["title"] = "Add a foundation";
         return view('admin.foundations.create')->with("data", $data);
     }
     
     public function list()
     {
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('List Foundations', "admin.foundations.list", null, "1");
+        $data["breadlist"] = $breadlist;
+
         $data["foundations"] = Foundation::all();
         return view('admin.foundations.list')->with("data", $data);
     }

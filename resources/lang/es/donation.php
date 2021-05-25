@@ -22,6 +22,7 @@ return [
     'payment_method_' => 'Método de pago: ',
 
     'my_donations' => 'Mis Donaciones',
+    'ty_donating' => '¡Gracias por tu donación!',
     'see_donations' => 'Ver donaciones'
 
 ];

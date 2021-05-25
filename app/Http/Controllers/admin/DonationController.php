@@ -29,7 +29,6 @@ class DonationController extends Controller
     public function list($foundationId)
     {
         $data["donations"] = Donation::all()->where('foundation_id', $foundationId);
-        //dd($data["donations"]);
         return view('admin.donations.list')->with("data", $data);
     }
 
@@ -37,7 +36,7 @@ class DonationController extends Controller
     {   
         Donation::validate($request);
         Donation::create($request->only(["payment","value","foundation"]));        
-        return back()->with('success', '¡Gracias por donar!');
+        return back()->with('success', __('donation.ty_donating'));
     }
 
     public function show($id) 
@@ -46,10 +45,9 @@ class DonationController extends Controller
         return view('admin.donations.show')->with("data", $data);
     }
 
-    public function delete($id) // necesario???
+    public function delete($id) 
     {        
-        $donations = Donation::find($id);                
-        $donations->delete();
+        Donation::destroy($id);
         return redirect()->route('donations.list');
         
     }

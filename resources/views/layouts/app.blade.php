@@ -47,7 +47,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <ul class="navbar-nav ml-auto">  
+                    <ul class="navbar-nav ml-auto">                          
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 {{ Config::get('languages')[App::getLocale()] }}
@@ -136,9 +136,26 @@
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
+
 
     <main class="py-4">
+
+        <div class="container-fluid padding-20" style="margin-top: 60px">
+            @if(!empty($data["breadlist"]))
+                <div class="container-fluid padding-top-20">
+                    <ol class="breadcrumb">
+                        @foreach ($data["breadlist"] as $bread)
+                            @if ($bread[3] == "1")
+                                <li class="breadcrumb-item active" aria-current="page">{{$bread[0]}}</li>
+                            @else
+                                <li class="breadcrumb-item"><a href="{{route($bread[1],$bread[2])}}">{{$bread[0]}}</a></li>
+                            @endif
+                        @endforeach
+                    </ol>
+                </div>
+            @endif
+        </div>
+
         @yield('content')
     </main>
 
