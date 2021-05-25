@@ -10,15 +10,19 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        $search = strtoupper($request->search); //to be sent to the view
-        $petItem = PetItem::where(
-            [
-            ['name', '=', $search]
-            ]
-        )
-        ->first();
-        $data["title"] = $petItem->getName();
-        $data["petItem"] = $petItem;
-        return redirect()->route('user.petItem.show', ['id' => $petItem->getId()]);
+        try {
+            $search = strtoupper($request->search); //to be sent to the view
+            $petItem = PetItem::where(
+                [
+                    ['name', '=', $search]
+                ]
+            )
+                ->first();
+            $data["title"] = $petItem->getName();
+            $data["petItem"] = $petItem;
+            return redirect()->route('user.petItem.show', ['id' => $petItem->getId()]);
+        } catch (\Throwable $th) {
+            return back()->with('danger', 'search not found!');
+        }
     }
 }
