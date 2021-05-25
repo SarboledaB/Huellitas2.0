@@ -11,6 +11,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PetItem extends Model
 {
@@ -30,16 +31,16 @@ class PetItem extends Model
     {
         $request->validate(
             [
-            "name" => "required",
-            "details" => "required",
-            "image" => "required",
-            "category_id" => "required|numeric",
-            "value" => "required|numeric|gt:0",
-            "rating" => "required|numeric|gt:0"
+                "name" => "required",
+                "details" => "required",
+                "image" => "required",
+                "category_id" => "required|numeric",
+                "value" => "required|numeric|gt:0",
+                "rating" => "required|numeric|gt:0"
             ]
         );
     }
-        
+
 
     public function getId()
     {
@@ -83,7 +84,9 @@ class PetItem extends Model
 
     public function getValue()
     {
-        return $this->attributes['value'];
+        $response = Http::get('https://trm-colombia.vercel.app/?date=2021-05-24');
+        $trm = $response->json();
+        return $this->attributes['value'] * $trm["data"]["value"];
     }
 
     public function setValue($value)
