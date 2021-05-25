@@ -19,7 +19,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index")
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 // Language
-Route::get('lang/{lang}','App\Http\Controllers\LanguageController@switchLang')->name('lang.switch');
+Route::get('lang/{lang}', 'App\Http\Controllers\LanguageController@switchLang')->name('lang.switch');
 
 //For admin
 
@@ -88,3 +88,5 @@ Route::get('/user/donations/create/{id}', 'App\Http\Controllers\user\DonationCon
 Route::post('/user/donations/save', 'App\Http\Controllers\user\DonationController@save')->name("user.donations.save");
 Route::get('/user/donations/list', 'App\Http\Controllers\user\DonationController@list')->name("user.donations.list");
 Route::get('/user/donations/show/{id}', 'App\Http\Controllers\user\DonationController@show')->name("user.donations.show");
+
+Route::get('/user/recipes/list', 'App\Http\Controllers\user\RecipesController@list')->name("user.recipes.list");
