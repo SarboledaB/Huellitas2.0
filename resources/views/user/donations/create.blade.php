@@ -9,18 +9,18 @@
             <div class="col-md-8">
             @include('util.message')
                 <div class="card">
-                    <div class="card-header">@lang('aplication.donate')</div>
+                    <div class="card-header">@lang('donation.donate')</div>
                         <div class="card-body">
                         <form method="POST" action="{{ route('user.donations.save') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="payment" class="col-md-4 col-form-label text-md-right">{{ __('Payment method') }}</label>
+                                <label for="payment" class="col-md-4 col-form-label text-md-right">@lang('general.payment_method')</label>
 
                                 <div class="col-md-6">
                                     <select required type="text" input id="payment" type="text" class="form-control @error('payment') is-invalid @enderror" name="payment" value="{{ old('payment') }}" required autocomplete="payment" autofocus>
-                                        <option value="Debit" >@lang('aplication.debit')</option>
-                                        <option value="Credit" >@lang('aplication.credit')</option>
+                                        <option value="Debit" >@lang('general.debit')</option>
+                                        <option value="Credit" >@lang('general.credit')</option>
                                     </select>
                                     @error('payment')
                                         <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="value" class="col-md-4 col-form-label text-md-right">{{ __('Value') }}</label>
+                                <label for="value" class="col-md-4 col-form-label text-md-right">@lang('general.value')</label>
 
                                 <div class="col-md-6">
                                     <input id="value" type="number" class="form-control @error('value') is-invalid @enderror" name="value" value="{{ old('value') }}" required autocomplete="value" autofocus>
@@ -59,7 +59,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Donate') }}
+                                        @lang('donation.donate')
                                     </button>
                                 </div>
                             </div>

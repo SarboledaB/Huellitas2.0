@@ -10,9 +10,9 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">@lang('aplication.id')</th>
-                        <th scope="col">@lang('aplication.name')</th>
-                        <th scope="col">@lang('aplication.actions')</th>
+                        <th scope="col">@lang('general.id')</th>
+                        <th scope="col">@lang('general.name')</th>
+                        <th scope="col">@lang('general.actions')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,9 +24,10 @@
                             <form method="POST" action="{{ route('admin.category.delete', [$category->getId()]) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">@lang('aplication.delete')</button>
+                                <button type="submit" class="btn btn-danger">@lang('general.delete')</button>
                             </form>
-                            <button type="button" class="btn btn-secondary">@lang('aplication.edit')</button>
+                            <button type="button" class="btn btn-secondary">@lang('general.edit')</button>
+
                         </td>
                     </tr>
                     @endforeach

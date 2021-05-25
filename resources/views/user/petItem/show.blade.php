@@ -14,7 +14,7 @@
                         <h5 class="card-title">{{ $data["petItem"]->getName()}}</h5>
                         <p class="card-text"><small class="text-muted">${{ $data["petItem"]->getValue()}}</small></p>
                         <p class="card-text">{{ $data["petItem"]->getDetails() }}</p>
-                        <a class="btn btn-primary " href="{{ route('user.cart.add', ['id' => $data["petItem"]->getId()]) }}" role="button">add</a>
+                        <a class="btn btn-primary " href="{{ route('user.cart.add', ['id' => $data["petItem"]->getId()]) }}" role="button">@lang('general.add')</a>
                     </div>
                 </div>
             </div>

@@ -25,14 +25,16 @@ class User extends Authenticatable
 
     public static function validate(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "username" => "required",
             "type" => "boolean",
             "firstName" => "required",
             "lastName" => "required",
             "email" => "required|email",
             "password" => "required"
-        ]);
+            ]
+        );
     }
 
     public function getId()

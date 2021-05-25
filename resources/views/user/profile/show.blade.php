@@ -19,13 +19,18 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <div>
+                        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.order.export')}}" role="button">@lang('general.export_orders')</a>
+                        <a class="btn btn-primary btn-lg btn-block" href="{{ route('user.donations.list')}}" role="button">@lang('donation.my_donations')</a>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">@lang('aplication.full_name')</h6>
+                                    <h6 class="mb-0">@lang('general.full_name')</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{$data["user"]->getFirstName()}} {{$data["user"]->getLastName()}}
@@ -34,7 +39,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">@lang('aplication.email')</h6>
+                                    <h6 class="mb-0">@lang('general.email')</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{$data["user"]->getEmail()}}
@@ -47,19 +52,19 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <!-- <th scope="col">ID</th> -->
-                                    <th scope="col">@lang('aplication.id')</th>
-                                    <th scope="col">@lang('aplication.date')</th>
-                                    <th scope="col">@lang('aplication.total')</th>
-                                    <th scope="col">@lang('aplication.actions')</th>
+                                    <th scope="col">@lang('general.id')</th>
+                                    <th scope="col">@lang('general.date')</th>
+                                    <th scope="col">@lang('general.total')</th>
+                                    <th scope="col">@lang('general.actions')</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data["orders"] as $key => $order)
+                                @foreach($data["user"]->orders as $key => $order)
                                 <tr>
                                     <td>{{$order->getId()}}</td>
                                     <td>{{$order->getCreatedAt()}}</td>
                                     <td>{{$order->getTotal()}}</td>
-                                    <td><a class="btn btn-primary " href="" role="button">@lang('aplication.show')</a></td>
+                                    <td><a class="btn btn-primary " href="" role="button">@lang('general.see_more')</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

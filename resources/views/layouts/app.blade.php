@@ -23,95 +23,115 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('user.petItem.list') }}">HUELLITAS</a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('user.petItem.list') }}">@lang('general.huellitas')</a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
+                @lang('general.menu')
                 <i class="fas fa-bars"></i>
             </button>
             <form class="form-inline" method="POST" action="{{ route('user.search.search') }}" enctype="multipart/form-data">
                 @csrf
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Send">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Send">@lang('general.search')</button>
             </form>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-
                 <ul class="navbar-nav mr-auto">
                     <!-- Future Left Side Links -->
 
                 </ul>
                 <!-- Right Side Of Navbar -->
+                
                 <ul class="navbar-nav ml-auto">
                     <!-- Future authentication Links -->
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    @guest
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.register') }}">{{ __('Register') }}</a></li>
+                    <ul class="navbar-nav ml-auto">  
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                {{ Config::get('languages')[App::getLocale()] }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    @if ($lang != App::getLocale())
+                                        <a class="dropdown-itam" href="{{ route('lang.switch', $lang) }}">
+                                            {{$language}}
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </li>                                                                          
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.foundations.list') }}">@lang('foundation.foundations')</a></li>
+                        @guest
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">@lang('general.login')</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.register') }}">@lang('general.register')</a></li>
 
-                    @else
-                    @if (Auth::user()->getType() == 1)
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link py-3 px-0 px-lg-3 dropdown-toggle ">{{ __('Admin') }}</a>
-                        <ul class="collapse" id="pageSubmenu1">
-                            <li>
-                                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">{{ __('Users') }}</a>
-                                <ul class="collapse list-unstyled" id="pageSubmenu2">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.user.create') }}">{{ __('Create') }}</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.user.list') }}">{{ __('List') }}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">PetItems</a>
-                                <ul class="collapse list-unstyled" id="pageSubmenu3">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.petItem.create') }}">Create</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.petItem.list') }}">List</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Categories</a>
-                                <ul class="collapse list-unstyled" id="pageSubmenu4">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.category.create') }}">Create</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.category.list') }}">List</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">Foundations</a>
-                                <ul class="collapse list-unstyled" id="pageSubmenu5">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.foundations.create') }}">Create</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('admin.foundations.list') }}">List</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    @endif
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
+                        @else
+                        @if (Auth::user()->getType() == 1)
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="nav-link py-3 px-0 px-lg-3 dropdown-toggle ">@lang('general.admin')</a>
+                            <ul class="collapse" id="pageSubmenu1">
+                                <li>
+                                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">@lang('general.users')</a>
+                                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.user.create') }}">@lang('general.create')</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.user.list') }}">@lang('general.list')</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">@lang('petItem.petitems')</a>
+                                    <ul class="collapse list-unstyled" id="pageSubmenu3">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.petItem.create') }}">@lang('general.create')</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.petItem.list') }}">@lang('general.list')</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">@lang('category.categories')</a>
+                                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.category.create') }}">@lang('general.create')</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.category.list') }}">@lang('general.list')</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">@lang('foundation.foundations')</a>
+                                    <ul class="collapse list-unstyled" id="pageSubmenu5">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.foundations.create') }}">@lang('general.create')</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.foundations.list') }}">@lang('general.list')</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif
+                        
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.cart.show') }}">Cart</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.profile.show') }}">Profile</a></li>
-                    @endguest
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.cart.show') }}">@lang('general.cart')</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.profile.show') }}">@lang('general.profile')</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">@lang('general.logout')</a></li>
+                                            
+
+                        @endguest
                 </ul>
             </div>
         </div>

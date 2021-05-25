@@ -19,7 +19,7 @@ class CartController extends Controller
         $data["title"] = "Cart Products";
         $listProductsInCart = array();
         $ids = $request->session()->get("products");
-        if($ids){
+        if($ids) {
             $listProductsInCart = PetItem::findMany($ids);
         }
         $data["products"] = $listProductsInCart;
@@ -58,7 +58,7 @@ class CartController extends Controller
         $total = 0;
         $ids = $request->session()->get("products");
         $listProductsInCart = [];
-        if($ids){
+        if($ids) {
             $listProductsInCart = PetItem::findMany($ids);
             foreach ($listProductsInCart as $product) {
                 $item = new Item();

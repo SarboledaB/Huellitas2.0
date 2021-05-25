@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use GuzzleHttp\Psr7\Request;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class Foundation extends Model
 {
     use HasFactory;
 
-    //attributes id, name, email, description
+    //attributes id, name, email, description, created_at, updated_at
     protected $fillable = ['name','email','description'];
 
     public function getId()
@@ -61,10 +61,12 @@ class Foundation extends Model
 
     public static function validate(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "name" => "required",
             "email" => "required",
             "description" => "required"
-        ]);
+            ]
+        );
     }
 }

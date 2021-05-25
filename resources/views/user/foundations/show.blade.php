@@ -12,18 +12,18 @@
 
                 <div class="card-body">
                     <ul id="errors">
-                    <li> Name: {{ $data["foundation"]->getName() }} </li>
-                    <li> E-Mail: {{ $data["foundation"]->getEmail() }} </li>
-                    <li> Description: {{ $data["foundation"]->getDescription() }} </li>   
+                    <li> @lang('general.name_') {{ $data["foundation"]->getName() }} </li>
+                    <li> @lang('general.email_') {{ $data["foundation"]->getEmail() }} </li>
+                    <li> @lang('general.description_') {{ $data["foundation"]->getDescription() }} </li>   
                     <br>
                     <button type="button" class="btn btn-primary" onclick="window.location=
-                    '{{ URL::route('user.donations.create', ['id'=>$data["foundation"]->getId()]) }}'">Donate</button>                                     
+                    '{{ URL::route('user.donations.create', ['id'=>$data["foundation"]->getId()]) }}'">@lang('donation.donate')</button>                                     
                     </ul>
                     
                 </div>
             </div>
             <button type="button" class="btn btn-primary" onclick="window.location=
-            '{{ URL::route('user.foundations.list') }}'">Back</button>
+            '{{ URL::route('user.foundations.list') }}'">@lang('general.back')</button>
         </div>
     </div>
 </div>
