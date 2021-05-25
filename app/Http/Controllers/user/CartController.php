@@ -16,6 +16,11 @@ class CartController extends Controller
     public function show(Request $request)
     {   
         $data = [];
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Cart', "user.cart.show", null, "1");
+        $data["breadlist"] = $breadlist;
+
         $data["title"] = "Cart Products";
         $listProductsInCart = array();
         $ids = $request->session()->get("products");
@@ -45,6 +50,13 @@ class CartController extends Controller
     public function buy(Request $request)
     {
         $data = []; //to be sent to the view
+
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Cart', "user.cart.show", null, "0");
+        $breadlist[2] = array('Billing', "user.cart.buy", null, "1");
+        $data["breadlist"] = $breadlist;
+
         $data["title"] = "Order";
         $data["user"] = User::findOrFail(Auth::id());
 

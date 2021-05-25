@@ -3,6 +3,7 @@
 @section("title", $data["title"])
 
 @section('content')
+
 <section class="page-section portfolio">
   @foreach($data["categories"] as $category)
   <div class="container">

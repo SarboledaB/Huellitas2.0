@@ -27,7 +27,7 @@
                 </tbody>
             </table>
             <button type="button" class="btn btn-primary" onclick="window.location=
-                '{{ URL::route('user.foundations.list') }}'">@lang('general.back')</button>             
+                '{{ URL::route('user.profile.show') }}'">@lang('general.back')</button>             
         </div>
     </div>
     

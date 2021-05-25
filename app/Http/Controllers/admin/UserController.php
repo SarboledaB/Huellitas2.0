@@ -41,6 +41,11 @@ class UserController extends Controller
         try {
 
             $data = []; //to be sent to the view
+            $breadlist = array();
+            $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+            $breadlist[1] = array('List Users', "admin.user.list", null, "1");
+            $data["breadlist"] = $breadlist;
+
             $data["title"] = "List users";
             $data["users"] = User::all()->sortBy('id');
 
@@ -53,6 +58,12 @@ class UserController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
+
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Create User', "admin.user.create", null, "1");
+        $data["breadlist"] = $breadlist;
+
         $data["title"] = "Create user";
 
         return view('admin.user.create')->with("data", $data);

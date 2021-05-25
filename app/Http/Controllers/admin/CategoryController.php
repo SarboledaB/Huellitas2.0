@@ -29,6 +29,10 @@ class CategoryController extends Controller
     public function create()
     {
         $data = []; //to be sent to the view
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Create Category', "admin.category.create", null, "1");
+        $data["breadlist"] = $breadlist;
         $data["title"] = "Create category";
         return view('admin.category.create')->with("data", $data);
     }
@@ -45,6 +49,12 @@ class CategoryController extends Controller
     {
         /* try { */
             $data = []; //to be sent to the view
+
+            $breadlist = array();
+            $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+            $breadlist[1] = array('List Categories', "admin.category.list", null, "1");
+            $data["breadlist"] = $breadlist;
+
             $data["title"] = "List Categories";
             $data["categories"] = Category::all()->sortBy('id');
             return view('admin.category.list')->with("data", $data);

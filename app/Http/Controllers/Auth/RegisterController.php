@@ -43,6 +43,11 @@ class RegisterController extends Controller
         $data = []; //to be sent to the view
         $data["title"] = "Create user";
 
+        $breadlist = array();
+        $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+        $breadlist[1] = array('Register', "user.register", null, "1"); 
+        $data["breadlist"] = $breadlist;
+
         return view('auth.register')->with("data", $data);
     }
 

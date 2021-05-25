@@ -46,16 +46,6 @@ class Category extends Model
         $this->attributes['name'] = $name;
     }
 
-    public function getItems()
-    {
-        return $this->attributes['items'];
-    }
-
-    public function setItems($items)
-    {
-        $this->attributes['items'] = $items;
-    }
-
     public function pet_items()
     {
         return $this->hasMany(PetItem::class, 'category_id');
