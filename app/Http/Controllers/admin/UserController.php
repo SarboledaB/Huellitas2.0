@@ -28,6 +28,11 @@ class UserController extends Controller
             $data = []; //to be sent to the view
             $user = User::findOrFail($id);
 
+            $breadlist = array();
+            $breadlist[0] = array('Home', "user.petItem.list", null, "0");
+            $breadlist[1] = array('List Users', "admin.user.list", null, "0");
+            $breadlist[2] = array($user->getUsername(), "admin.user.show", ['id' => $id], "1");
+            $data["breadlist"] = $breadlist;
             $data["title"] = $user->getUsername();
             $data["user"] = $user;
             return view('admin.user.show')->with("data", $data);

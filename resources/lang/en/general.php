@@ -24,12 +24,17 @@ return [
 
     // Atributes 
     'id' => 'ID',
+    'id_' => 'ID:',
     'name' => 'Name',
     'name_' => 'Name: ',
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
     'full_name' => 'Full Name ',
     'username' => 'Username',
+    'first_name_' => 'First Name:',
+    'last_name_' => 'Last Name:',
+    'full_name_' => 'Full Name :',
+    'username_' => 'Username:',
     'password' => 'Password',
     'status' => "Status",
     'type' => 'Type',
