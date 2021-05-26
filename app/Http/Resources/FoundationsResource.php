@@ -13,7 +13,7 @@ class FoundationsResource extends JsonResource
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'description' => $this->getDescription(),
-            'url' => "http://127.0.0.1:8000/user/foundations/show/$id"
+            'url' => "http://tsw-huellitas.tk/public/user/foundations/show/$id"
         ];
     }
 }

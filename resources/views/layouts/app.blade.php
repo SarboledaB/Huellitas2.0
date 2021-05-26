@@ -40,28 +40,28 @@
 
                 </ul>
                 <!-- Right Side Of Navbar -->
-                
+
                 <ul class="navbar-nav ml-auto">
                     <!-- Future authentication Links -->
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <ul class="navbar-nav ml-auto">                          
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 {{ Config::get('languages')[App::getLocale()] }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @foreach (Config::get('languages') as $lang => $language)
-                                    @if ($lang != App::getLocale())
-                                        <a class="dropdown-itam" href="{{ route('lang.switch', $lang) }}">
-                                            {{$language}}
-                                        </a>
-                                    @endif
+                                @if ($lang != App::getLocale())
+                                <a class="dropdown-itam" href="{{ route('lang.switch', $lang) }}">
+                                    {{$language}}
+                                </a>
+                                @endif
                                 @endforeach
                             </div>
-                        </li>                                                                          
+                        </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.foundations.list') }}">@lang('foundation.foundations')</a></li>
                         @guest
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">@lang('general.login')</a></li>
@@ -119,20 +119,20 @@
                             </ul>
                         </li>
                         @endif
-                        
+
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        
+
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.cart.show') }}">@lang('general.cart')</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.profile.show') }}">@lang('general.profile')</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">@lang('general.logout')</a></li>
-                                            
+
 
                         @endguest
-                </ul>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -142,17 +142,17 @@
 
         <div class="container-fluid padding-20" style="margin-top: 60px">
             @if(!empty($data["breadlist"]))
-                <div class="container-fluid padding-top-20">
-                    <ol class="breadcrumb">
-                        @foreach ($data["breadlist"] as $bread)
-                            @if ($bread[3] == "1")
-                                <li class="breadcrumb-item active" aria-current="page">{{$bread[0]}}</li>
-                            @else
-                                <li class="breadcrumb-item"><a href="{{route($bread[1],$bread[2])}}">{{$bread[0]}}</a></li>
-                            @endif
-                        @endforeach
-                    </ol>
-                </div>
+            <div class="container-fluid padding-top-20">
+                <ol class="breadcrumb">
+                    @foreach ($data["breadlist"] as $bread)
+                    @if ($bread[3] == "1")
+                    <li class="breadcrumb-item active" aria-current="page">{{$bread[0]}}</li>
+                    @else
+                    <li class="breadcrumb-item"><a href="{{route($bread[1],$bread[2])}}">{{$bread[0]}}</a></li>
+                    @endif
+                    @endforeach
+                </ol>
+            </div>
             @endif
         </div>
 
