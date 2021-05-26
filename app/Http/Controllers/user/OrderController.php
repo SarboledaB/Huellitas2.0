@@ -29,13 +29,13 @@ class OrderController extends Controller
         return view('admin.user.create')->with("data", $data);
     }
 
-    public function show()
+    public function show($id)
     {
         $data = []; //to be sent to the view
         $data["title"] = "Orders";
         $data["user"] = User::findOrFail(Auth::id());
         $data["order"] = Order::with(['items'])
-            ->where('id', 1)
+            ->where('id', $id)
             ->first();
         $data["products"] = [];
         /* dd($data["order"]->items); */
