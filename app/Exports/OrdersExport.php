@@ -13,6 +13,6 @@ class OrdersExport implements FromCollection
     */
     public function collection()
     {
-        return Order::all()->where('user_id','=',Auth::id());
+        return Order::with(['items'])->where('user_id','=',Auth::id())->get();
     }
 }
