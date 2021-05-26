@@ -19,6 +19,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    //attributes id, username, type, firstName, lastName, email, password, remember_token, created_at, updated_at
     protected $fillable = ['username', 'type', 'firstName', 'lastName', 'email', 'password'];
 
     protected $hidden = ['password', 'remember_token',];
