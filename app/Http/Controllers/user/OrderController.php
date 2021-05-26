@@ -5,13 +5,16 @@
 | Author: Anthony Garcia Moncada
 | Email:  agarciam@eafit.edu.co
 |--------------------------------------------------------------------------
-**/
+ **/
 
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\PetItem;
 use App\Models\Order;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use App\Exports\OrdersExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -26,10 +29,28 @@ class OrderController extends Controller
         return view('admin.user.create')->with("data", $data);
     }
 
+    public function show()
+    {
+        $data = []; //to be sent to the view
+        $data["title"] = "Orders";
+        $data["user"] = User::findOrFail(Auth::id());
+        $data["order"] = Order::with(['items'])
+            ->where('id', 1)
+            ->first();
+        $data["products"] = [];
+        /* dd($data["order"]->items); */
+        foreach ($data["order"]->items as $key => $value) {
+            $petItems = PetItem::where('id', $value->pet_item_id)->first();
+            array_push($data["products"], $petItems);
+        }
+
+        return view('user.order.show')->with("data", $data);
+    }
+
     public function save(Request $request)
     {
         try {
-            $products = $request->session()->get("products"); 
+            $products = $request->session()->get("products");
             dd($products);
             /* Order::validate($request);
             Order::create($request->only(['id', 'status', 'total', 'paymentMethod', 'user', 'items'])); */
@@ -52,9 +73,8 @@ class OrderController extends Controller
         }
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new OrdersExport, 'Orders.xlsx');
     }
-
 }
