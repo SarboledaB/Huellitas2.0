@@ -18,8 +18,9 @@ class ProfileController extends Controller
         $breadlist[1] = array('Profile', "user.profile.show", null, "1");
         $data["breadlist"] = $breadlist;
         $user = User::with(['orders' => function ($query) {
-            $query->where('user_id', Auth::id());
-        }])->first();
+        }])
+            ->where('id', Auth::id())
+            ->first();
         $data["title"] = $user->getUsername();
         $data["user"] = $user;
 
