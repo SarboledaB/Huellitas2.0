@@ -48,6 +48,23 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
+=======
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                {{ Config::get('languages')[App::getLocale()] }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                <a class="dropdown-itam" href="{{ route('lang.switch', $lang) }}">
+                                    {{$language}}
+                                </a>
+                                @endif
+                                @endforeach
+                            </div>
+                        </li>
+>>>>>>> 497a8c384e0c245188ac9c6a7eeafd9a13f6d045
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('user.foundations.list') }}">@lang('foundation.foundations')</a></li>
                         @guest
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">@lang('general.login')</a></li>
@@ -118,6 +135,7 @@
 
 
                         @endguest
+<<<<<<< HEAD
                         <li class="nav-item mx-0 mx-lg-1">
                             <a href="#pageSubmenu9" data-toggle="collapse" aria-expanded="false" class="nav-link py-3 px-0 px-lg-3 dropdown-toggle">{{ Config::get('languages')[App::getLocale()] }}</a>
                             <div class="collapse" id="pageSubmenu9">
@@ -128,6 +146,8 @@
                                 @endforeach
                             </div>
                         </li>
+=======
+>>>>>>> 497a8c384e0c245188ac9c6a7eeafd9a13f6d045
                     </ul>
             </div>
         </div>
