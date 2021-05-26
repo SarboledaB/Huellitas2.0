@@ -17,6 +17,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 use App\Exports\OrdersExport;
+use App\Interfaces\DownloadFile;
 use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
@@ -75,6 +76,7 @@ class OrderController extends Controller
 
     public function export()
     {
-        return Excel::download(new OrdersExport, 'Orders.xlsx');
+        $downloadInterface = app(DownloadFile::class);
+        return $downloadInterface->download('Orders.xlsx');
     }
 }
