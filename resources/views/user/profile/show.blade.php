@@ -64,7 +64,7 @@
                                     <td>{{$order->getId()}}</td>
                                     <td>{{$order->getCreatedAt()}}</td>
                                     <td>{{$order->getTotal()}}</td>
-                                    <td><a class="btn btn-primary " href="" role="button">@lang('general.see_more')</a></td>
+                                    <td><a class="btn btn-primary " href="{{ route('user.order.show', ['id' => $order->getId()]) }}" role="button">@lang('general.see_more')</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
