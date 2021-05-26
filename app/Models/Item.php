@@ -17,6 +17,7 @@ use phpDocumentor\Reflection\Types\This;
 
 class Item extends Model
 {
+    //attributes id, quantity, value, petItem_id, order_id, created_at, updated_at
     protected $fillable = ['quantity', 'value'];
 
     public static function validate(Request $request)
