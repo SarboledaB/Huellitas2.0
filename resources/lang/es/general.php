@@ -24,12 +24,17 @@ return [
 
     // Atributes 
     'id' => 'ID',
+    'id_' => 'ID:',
     'name' => 'Nombre',
     'name_' => 'Nombre: ',
     'first_name' => 'Nombre',
     'last_name' => 'Apellido',
     'full_name' => 'Nombre Completo ',
     'username' => 'Usuario',
+    'first_name_' => 'Nombre:',
+    'last_name_' => 'Apellido:',
+    'full_name_' => 'Nombre Completo :',
+    'username_' => 'Usuario:',
     'password' => 'Contraseña',
     'status' => "Estado",
     'type' => 'Tipo',
@@ -88,5 +93,7 @@ return [
 
     'undefined' => 'Undefined',
     'undefine' => 'Undefine'
+
+
 
 ];

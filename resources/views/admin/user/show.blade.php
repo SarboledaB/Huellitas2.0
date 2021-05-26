@@ -10,11 +10,11 @@
                 <div class="card">
                     <div class="card-header">{{ $data["user"]->getUsername() }}</div>
                     <div class="card-body">
-                        <b>Id:</b> {{ $data["user"]->getId() }}<br />
-                        <b>Username:</b> {{ $data["user"]->getUsername() }}<br />
-                        <b>First Name:</b> {{ $data["user"]->getFirstName() }}<br />
-                        <b>Last Name:</b> {{ $data["user"]->getLastName() }}<br />
-                        <b>Email:</b> {{ $data["user"]->getEmail() }}<br />
+                        <b>@lang('general.id_')</b> {{ $data["user"]->getId() }}<br />
+                        <b>@lang('general.username_')</b> {{ $data["user"]->getUsername() }}<br />
+                        <b>@lang('general.first_name_')</b> {{ $data["user"]->getFirstName() }}<br />
+                        <b>@lang('general.last_name_')</b> {{ $data["user"]->getLastName() }}<br />
+                        <b>@lang('general.email_')</b> {{ $data["user"]->getEmail() }}<br />
                         <br>
                         <a class="btn btn-outline-danger" href="{{ route('admin.user.delete', ['id' => $data['user']['id']] ) }}">@lang('general.delete')</a>
                     </div>

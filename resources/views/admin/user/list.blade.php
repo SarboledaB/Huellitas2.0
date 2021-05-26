@@ -10,10 +10,10 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">@lang('general.status')</th>
-                        <th scope="col">@lang('general.total_cost')</th>
-                        <th scope="col">@lang('general.payment_method')</th>
-                        <th scope="col">@lang('general.total_cost')</th>
+                        <th scope="col">@lang('general.username')</th>
+                        <th scope="col">@lang('general.name')</th>
+                        <th scope="col">@lang('general.last_name')</th>
+                        <th scope="col">@lang('general.email')</th>
                     </tr>
                 </thead>
                 <tbody>
